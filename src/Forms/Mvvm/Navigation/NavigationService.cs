@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Core;
@@ -56,14 +58,47 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 				throw new NautilusException($"PageKey '{pageKey}' was not registered. Ensure it gets registered first before calling");
 			}
 
-			var pageInstance = FindAndCreate(pageMapperItem);
+			var pageInstance = FindAndCreate(pageMapperItem, parameter);
 			await _navigationPage.PushAsync(pageInstance, animated);
 		}
 
-		private Page FindAndCreate(PageMapperItem pageMapperItem)
+		private Page FindAndCreate(PageMapperItem pageMapperItem, object parameter)
 		{
-			var pageInstance = Activator.CreateInstance(pageMapperItem.PageType) as Page;
+			ConstructorInfo constructor;
+			object[] parameters;
 
+			if (parameter == null)
+			{
+				constructor = pageMapperItem.PageType.GetTypeInfo()
+					.DeclaredConstructors
+					.FirstOrDefault(c => !c.GetParameters().Any());
+
+				parameters = new object[] { };
+			}
+			else
+			{
+				constructor = pageMapperItem.PageType.GetTypeInfo()
+					.DeclaredConstructors
+					.FirstOrDefault(
+					c =>
+					{
+						var p = c.GetParameters();
+						return p.Count() == 1
+						&& p[0].ParameterType == parameter.GetType();
+					});
+
+				parameters = new[]
+				{
+					parameter
+				};
+			}
+
+			if (constructor == null)
+			{
+				throw new InvalidOperationException("No suitable constructor found for page key " + pageMapperItem.PageKey);
+			}
+
+			var pageInstance = constructor.Invoke(parameters) as Page;
 			return pageInstance;
 		}
 
