@@ -60,8 +60,6 @@ namespace NautilusLite
 			navigator.SetRootPage(navigationPage);
 
 			Application.Current.MainPage = navigationPage;
-
-
 		}
 		#endregion
 	}
