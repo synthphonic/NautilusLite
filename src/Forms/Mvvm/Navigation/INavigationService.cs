@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace NautilusLite.Forms.Mvvm.Navigation
 {
@@ -21,5 +22,22 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 		/// </summary>
 		/// <param name="rootPage"></param>
 		void SetRootPage(Page rootPage);
+
+		/// <summary>
+		/// Navigates to a new view asynchronously
+		/// </summary>
+		/// <returns>The to async.</returns>
+		/// <param name="pageKey">Page key.</param>
+		/// <param name="animated">Animate view when navigating to the intended view</param>
+		Task NavigateToAsync(string pageKey, bool animated = false);
+
+		/// <summary>
+		/// Navigates to a new view asynchronously
+		/// </summary>
+		/// <returns>The to async.</returns>
+		/// <param name="pageKey">Page key.</param>
+		/// <param name="parameter">The object that is passed to the targeted view</param>
+		/// /// <param name="animated">Animate view when navigating to the intended view</param>
+		Task NavigateToAsync(string pageKey, object parameter, bool animated = false);
 	}
 }
