@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using GalaSoft.MvvmLight.Ioc;
+using NautilusLite.Core;
 using NautilusLite.Forms.Mvvm.Navigation;
+using NautilusLite.Forms.Mvvm.Navigation.Core;
 using Xamarin.Forms;
 
 namespace NautilusLite
 {
-	public sealed class NautilusApplicationBuilder : INautilusAppNavigationInitializer, INautilusStartPage, INautilusAppInitializer
+	public sealed class NautilusApplicationBuilder : INautilusAppNavigationInitializer, IPageNavigationMapper, INautilusStartPage, INautilusAppInitializer
 	{
-		private Func<INavigationService> _action;
+		private Func<INavigationService> _navigationSvcFunc;
+		private Func<PageNavigationMapper> _pageMapperFunc;
 		private Type _rootPageType;
-
+		private IEnumerable<PageMapperItem> _pageMappers;
 		private NautilusApplicationBuilder()
 		{
 
@@ -22,12 +26,27 @@ namespace NautilusLite
 		}
 		#endregion
 
-		public INautilusStartPage UseNavigation(Func<INavigationService> action = null)
+		public IPageNavigationMapper UseNavigation(Func<INavigationService> navigationSvcFunc = null)
 		{
-			_action = action;
+			_navigationSvcFunc = navigationSvcFunc;
 
 			return this;
 		}
+
+		#region IPageNavigationMapper
+		public INautilusStartPage RegisterPages(Func<PageNavigationMapper> pageMapperFunc = null)
+		{
+			if (pageMapperFunc == null)
+			{
+				throw new NautilusException("PageNavigationMapper is null");
+			}
+
+			_pageMapperFunc = pageMapperFunc;
+
+			return this;
+		}
+
+		#endregion
 
 		#region INautilusStartPage
 		public INautilusAppInitializer UseRootPage(Type rootPageType)
@@ -41,16 +60,23 @@ namespace NautilusLite
 		#region INautilusAppInitializer
 		public void Initialize()
 		{
+			//
+			// invoke page mapper delegate
+			var pageMapper = _pageMapperFunc();
+			_pageMappers = pageMapper.PageMappers;
+
+			//
+			// invoke navigation service delegate
 			INavigationService navigator = null;
 
-			if (_action == null)
+			if (_navigationSvcFunc == null)
 			{
 				navigator = new NavigationService();
 				navigator.Initialize(Application.Current);
 			}
 			else
 			{
-				navigator = _action.Invoke();
+				navigator = _navigationSvcFunc.Invoke();
 				navigator.Initialize(Application.Current);
 			}
 
@@ -59,6 +85,8 @@ namespace NautilusLite
 			var navigationPage = new NavigationPage(pageInstance);
 			navigator.SetRootPage(navigationPage);
 
+			((NavigationService)navigator).SetNavigtionPage(navigationPage);
+
 			Application.Current.MainPage = navigationPage;
 		}
 		#endregion
@@ -66,7 +94,12 @@ namespace NautilusLite
 
 	public interface INautilusAppNavigationInitializer
 	{
-		INautilusStartPage UseNavigation(Func<INavigationService> action = null);
+		IPageNavigationMapper UseNavigation(Func<INavigationService> func = null);
+	}
+
+	public interface IPageNavigationMapper
+	{
+		INautilusStartPage RegisterPages(Func<PageNavigationMapper> func = null);
 	}
 
 	public interface INautilusStartPage
