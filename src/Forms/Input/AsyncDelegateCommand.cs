@@ -12,22 +12,27 @@ namespace NautilusLite.Forms.Input
 {
 	public class AsyncDelegateCommand : ICommand
 	{
+		public event EventHandler CanExecuteChanged = null;
+
 		private readonly Predicate<object> _canExecute;
 		private readonly Func<object, Task> _asyncExecute;
 		private readonly bool _allowMultipleExecutionsAtOnce;
-
 		private bool _isExecuting;
-
-		public event EventHandler CanExecuteChanged;
 
 		public AsyncDelegateCommand(Func<object, Task> execute)
 			: this(execute, null, false)
 		{
+
 		}
 
 		public AsyncDelegateCommand(Func<object, Task> execute, bool allowMultipleExecutionsAtOnce)
 			: this(execute, null, allowMultipleExecutionsAtOnce)
 		{
+		}
+
+		protected virtual void OnCanExecuteChanged(EventArgs e)
+		{
+			CanExecuteChanged?.Invoke(this, e);
 		}
 
 		/// <summary>
