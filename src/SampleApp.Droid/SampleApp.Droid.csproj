@@ -235,7 +235,7 @@
       <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
       <Name>NautilusLite</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFTrainingPart1\SampleApp.csproj">
+    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
       <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
       <Name>SampleApp</Name>
     </ProjectReference>

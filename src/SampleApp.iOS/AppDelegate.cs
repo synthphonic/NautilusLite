@@ -26,7 +26,7 @@ namespace SampleApp.iOS
 
 			NautilusLite.iOS.NautilusServices.Init();
 
-			LoadApplication(new SampleApp.App());
+			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
 		}

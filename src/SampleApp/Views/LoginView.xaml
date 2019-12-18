@@ -33,21 +33,13 @@
             </Grid.RowDefinitions>
 
             <controls:ExtendedEntry Grid.Row="0"
-                                    BorderColor="Brown" BorderStyle="Underline"
-                                    PlaceholderColor="LightBlue"
-                                    Placeholder="Enter user name"
-                                    FontSize="20"
-                                    TextColor="LightBlue"                                    
-                                    BackgroundColor="Transparent"/>
+                                    Style="{StaticResource BaseEntry}"
+                                    Placeholder="Enter user name"/>
 
             <controls:ExtendedEntry Grid.Row="1"
-                                    BorderColor="Brown" BorderStyle="Underline"
-                                    PlaceholderColor="LightBlue"
-                                    Placeholder="Enter password"
-                                    FontSize="20"
-                                    TextColor="LightBlue"                                    
+                                    Style="{StaticResource BaseEntry}"
                                     IsPassword="True"
-                                    BackgroundColor="Transparent"/>
+                                    Placeholder="Enter password"/>
 
             <Button Grid.Row="3" Text="Login" Style="{StaticResource AppButton}" Command="{Binding LoginCommand}"/>
         </Grid>

@@ -139,7 +139,7 @@
       <Project>{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}</Project>
       <Name>NautilusLite.iOS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFTrainingPart1\SampleApp.csproj">
+    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
       <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
       <Name>SampleApp</Name>
     </ProjectReference>
