@@ -189,7 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NautilusLite\NautilusLite.csproj">
-      <Project>{8757D050-F1A6-4EE2-AE06-AF61F507FA23}</Project>
+      <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
       <Name>NautilusLite</Name>
     </ProjectReference>
   </ItemGroup>

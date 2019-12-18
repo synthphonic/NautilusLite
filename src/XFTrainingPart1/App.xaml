@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="XFTrainingPart1.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Background">#2C96C4</Color>
+            <Color x:Key="LineColor">Brown</Color>
+            <Color x:Key="UndefineColor">#E0E0E0</Color>            
+
+			<Style x:Key="AppButton" TargetType="Button">
+				<Setter Property="CornerRadius" Value="5" />
+				<Setter Property="BorderWidth" Value="1" />
+				<Setter Property="BorderColor" Value="{StaticResource LineColor}" />
+				<Setter Property="FontSize" Value="20" />
+				<Setter Property="TextColor" Value="{StaticResource LineColor}" />
+				<Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+			 	<Setter Property="HeightRequest">
+          			<Setter.Value>
+            			<OnPlatform x:TypeArguments="x:Double">
+            				<On Platform="iOS">50</On>
+							<On Platform="Android">70</On>
+                            <On Platform="UWP">50</On>
+						</OnPlatform>
+          			</Setter.Value>
+        		</Setter>		
+                <Setter Property="FontFamily">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="iOS">TitilliumWeb-ExtraLight</On>
+                        </OnPlatform>
+                    </Setter.Value>                    
+                </Setter>                
+			</Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

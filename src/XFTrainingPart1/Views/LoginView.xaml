@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:controls="clr-namespace:NautilusLite.Forms.Controls;assembly=NautilusLite"
+             ios:Page.UseSafeArea="true"
+             mc:Ignorable="d"
+             BackgroundColor="{StaticResource Background}"
+             x:Class="XFTrainingPart1.Views.LoginView">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackLayout Padding="10,10,10,10" Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="NautilusLite Mobile SDK v1.0" FontSize="Title" FontAttributes="Bold"/>
+                <Label Text="yet another reference app..." FontSize="Medium" FontAttributes="Italic"/>
+            </StackLayout>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <controls:ExtendedEntry Grid.Row="0"
+                                    BorderColor="Brown" BorderStyle="Underline"
+                                    PlaceholderColor="LightBlue"
+                                    Placeholder="Enter user name"
+                                    FontSize="20"
+                                    TextColor="LightBlue"                                    
+                                    BackgroundColor="Transparent"/>
+
+            <controls:ExtendedEntry Grid.Row="1"
+                                    BorderColor="Brown" BorderStyle="Underline"
+                                    PlaceholderColor="LightBlue"
+                                    Placeholder="Enter password"
+                                    FontSize="20"
+                                    TextColor="LightBlue"                                    
+                                    IsPassword="True"
+                                    BackgroundColor="Transparent"/>
+
+            <Button Grid.Row="3" Text="Login" Style="{StaticResource AppButton}" Command="{Binding LoginCommand}"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Label HorizontalTextAlignment="Center" VerticalOptions="Start" FontSize="18">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="forgot your "/>
+                        <Span Text="password?"
+                              TextColor="{StaticResource LineColor}"
+                              TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Label Text="synthphonic labs 2019" HorizontalOptions="Center"/>
+        </Grid>
+    </Grid>
+</ContentPage>
+
