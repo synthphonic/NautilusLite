@@ -17,6 +17,8 @@
     <Folder Include="Forms\Input\AbstractionLayer\" />
     <Folder Include="Core\Task\" />
     <Folder Include="Forms\Mvvm\Navigation\Core\" />
+    <Folder Include="Forms\Controls\" />
+    <Folder Include="Forms\Controls\Renderers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />

@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NautilusLite", "NautilusLite\NautilusLite.csproj", "{CA3D2F18-3AE5-4C65-95EC-AC57EFACB5E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NautilusLite.iOS", "NautilusLite.iOS\NautilusLite.iOS.csproj", "{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NautilusLite.Droid", "NautilusLite.Droid\NautilusLite.Droid.csproj", "{5731C40C-36C7-46DD-801F-ED3FCB43D911}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA3D2F18-3AE5-4C65-95EC-AC57EFACB5E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA3D2F18-3AE5-4C65-95EC-AC57EFACB5E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA3D2F18-3AE5-4C65-95EC-AC57EFACB5E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA3D2F18-3AE5-4C65-95EC-AC57EFACB5E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5731C40C-36C7-46DD-801F-ED3FCB43D911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5731C40C-36C7-46DD-801F-ED3FCB43D911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5731C40C-36C7-46DD-801F-ED3FCB43D911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5731C40C-36C7-46DD-801F-ED3FCB43D911}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
