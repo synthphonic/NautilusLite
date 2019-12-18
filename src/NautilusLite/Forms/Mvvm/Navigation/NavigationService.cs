@@ -62,6 +62,19 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 			await _navigationPage.PushAsync(pageInstance, animated);
 		}
 
+		public async Task NavigateAndSetAsFirstPageAsync(string firstPageKey, bool animated = false)
+		{
+			await _navigationPage.Navigation.PopToRootAsync(animated);
+			var rootPage = _navigationPage.Navigation.NavigationStack[0];
+
+			var pageMapperItem = PageNavigationMapper.Instance.GetPage(firstPageKey);
+			var newPage = FindAndCreate(pageMapperItem, null);
+
+			_navigationPage.Navigation.InsertPageBefore(newPage, rootPage);
+
+			_navigationPage.Navigation.RemovePage(rootPage);
+		}
+
 		private Page FindAndCreate(PageMapperItem pageMapperItem, object parameter)
 		{
 			ConstructorInfo constructor;

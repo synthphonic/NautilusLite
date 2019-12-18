@@ -39,5 +39,14 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 		/// <param name="parameter">The object that is passed to the targeted view</param>
 		/// /// <param name="animated">Animate view when navigating to the intended view</param>
 		Task NavigateToAsync(string pageKey, object parameter, bool animated = false);
+
+		/// <summary>
+		/// Removes all views in the navigation stack, and then set the first page
+		/// according to the firstPageKey given in the parameter
+		/// </summary>
+		/// <param name="firstPageKey"></param>
+		/// <param name="animated"></param>
+		/// <returns></returns>
+		Task NavigateAndSetAsFirstPageAsync(string firstPageKey, bool animated = false);
 	}
 }
