@@ -8,7 +8,7 @@
              ios:Page.UseSafeArea="true"
              mc:Ignorable="d"
              BackgroundColor="{StaticResource Background}"
-             x:Class="XFTrainingPart1.Views.LoginView">
+             x:Class="SampleApp.Views.LoginView">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="300"/>

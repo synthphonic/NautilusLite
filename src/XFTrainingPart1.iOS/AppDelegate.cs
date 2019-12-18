@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace XFTrainingPart1.iOS
+namespace SampleApp.iOS
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
@@ -26,7 +26,7 @@ namespace XFTrainingPart1.iOS
 
 			NautilusLite.iOS.NautilusServices.Init();
 
-			LoadApplication(new App());
+			LoadApplication(new SampleApp.App());
 
 			return base.FinishedLaunching(app, options);
 		}

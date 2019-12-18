@@ -1,5 +1,5 @@
 ﻿using System;
-namespace XFTrainingPart1.Models
+namespace SampleApp.Models
 {
 	public class UserModel
 	{

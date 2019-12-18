@@ -2,7 +2,7 @@
 using NautilusLite.Forms.Mvvm.Navigation;
 using Xamarin.Forms;
 
-namespace XFTrainingPart1
+namespace SampleApp
 {
 	public class NavSvc //: INavigationService
 	{

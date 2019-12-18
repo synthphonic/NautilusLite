@@ -5,11 +5,11 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
-using XFTrainingPart1.Models;
-using XFTrainingPart1.Views;
-using XFTrainingPart1.Views.ViewParameters;
+using SampleApp.Models;
+using SampleApp.Views;
+using SampleApp.Views.ViewParameters;
 
-namespace XFTrainingPart1.ViewModels
+namespace SampleApp.ViewModels
 {
 	public class MainViewModel : ViewModelBase
 	{

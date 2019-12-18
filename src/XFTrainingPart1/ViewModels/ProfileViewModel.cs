@@ -1,8 +1,8 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-using XFTrainingPart1.Views.ViewParameters;
+using SampleApp.Views.ViewParameters;
 
-namespace XFTrainingPart1.ViewModels
+namespace SampleApp.ViewModels
 {
 	public class ProfileViewModel : ViewModelBase
 	{

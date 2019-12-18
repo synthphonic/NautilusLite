@@ -1,8 +1,8 @@
 ﻿using NautilusLite;
 using Xamarin.Forms;
-using XFTrainingPart1.Views;
+using SampleApp.Views;
 
-namespace XFTrainingPart1
+namespace SampleApp
 {
 	public partial class App : Application
 	{

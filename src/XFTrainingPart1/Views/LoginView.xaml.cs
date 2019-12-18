@@ -1,8 +1,8 @@
 ﻿using NautilusLite.Forms;
 using Xamarin.Forms;
-using XFTrainingPart1.ViewModels;
+using SampleApp.ViewModels;
 
-namespace XFTrainingPart1.Views
+namespace SampleApp.Views
 {
 	public partial class LoginView : ContentPage
 	{

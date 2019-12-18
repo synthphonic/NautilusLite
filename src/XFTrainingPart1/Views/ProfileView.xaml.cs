@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using XFTrainingPart1.ViewModels;
-using XFTrainingPart1.Views.ViewParameters;
+using SampleApp.ViewModels;
+using SampleApp.Views.ViewParameters;
 
-namespace XFTrainingPart1.Views
+namespace SampleApp.Views
 {
 	public partial class ProfileView : ContentPage
 	{

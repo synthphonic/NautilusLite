@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using XFTrainingPart1.ViewModels;
+using SampleApp.ViewModels;
 
-namespace XFTrainingPart1.Views
+namespace SampleApp.Views
 {
 	// Learn more about making custom code visible in the Xamarin.Forms previewer
 	// by visiting https://aka.ms/xamarinforms-previewer

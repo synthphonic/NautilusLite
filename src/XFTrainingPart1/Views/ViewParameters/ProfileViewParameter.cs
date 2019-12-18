@@ -1,5 +1,5 @@
 ﻿using System;
-namespace XFTrainingPart1.Views.ViewParameters
+namespace SampleApp.Views.ViewParameters
 {
 	public class ProfileViewParameter
 	{

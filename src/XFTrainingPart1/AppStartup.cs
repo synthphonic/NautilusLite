@@ -1,7 +1,7 @@
 ﻿using NautilusLite.Forms.Mvvm.Navigation;
-using XFTrainingPart1.Views;
+using SampleApp.Views;
 
-namespace XFTrainingPart1
+namespace SampleApp
 {
 	public static class AppStartup
 	{

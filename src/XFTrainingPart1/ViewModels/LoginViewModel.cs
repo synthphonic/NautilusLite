@@ -5,7 +5,7 @@ using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 
-namespace XFTrainingPart1.ViewModels
+namespace SampleApp.ViewModels
 {
 	public class LoginViewModel : ViewModelBase
 	{

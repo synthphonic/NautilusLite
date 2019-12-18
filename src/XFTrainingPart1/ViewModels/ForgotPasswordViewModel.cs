@@ -1,7 +1,7 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 
-namespace XFTrainingPart1.ViewModels
+namespace SampleApp.ViewModels
 {
 	public class ForgotPasswordViewModel : ViewModelBase
 	{
