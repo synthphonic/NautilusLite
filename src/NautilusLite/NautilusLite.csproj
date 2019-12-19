@@ -18,6 +18,7 @@
     <Folder Include="Core\Task\" />
     <Folder Include="Forms\Mvvm\Navigation\Core\" />
     <Folder Include="Forms\Controls\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
