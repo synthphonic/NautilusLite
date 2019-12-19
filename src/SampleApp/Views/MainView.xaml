@@ -6,9 +6,27 @@
              mc:Ignorable="d" x:Class="SampleApp.Views.MainView"
              xmlns:viewmodels="clr-namespace:SampleApp.ViewModels"
              x:DataType="viewmodels:MainViewModel"
+             Style="{StaticResource BasePageStyle}"
              xmlns:models="clr-namespace:SampleApp.Models">
-    <Grid>
-        <StackLayout Orientation="Vertical">
+    <Grid>        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" >
+        </Grid>
+        
+        <Grid Grid.Row="1">
+
+        </Grid>
+
+        <Frame BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2"
+               Margin="80,200,80,250"
+               TranslationY="-25"/>
+
+        <StackLayout Grid.Row="2" Orientation="Vertical">
             <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="Center" >
                 <StackLayout>
                     <Label Text="{Binding WelcomeMessage}" HorizontalOptions="Center"/>
@@ -19,5 +37,5 @@
 
             </StackLayout>
         </StackLayout>        
-    </Grid>   
+    </Grid>
 </ContentPage>
