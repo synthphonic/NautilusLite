@@ -33,15 +33,15 @@
             </Grid.RowDefinitions>
 
             <controls:ExtendedEntry Grid.Row="0"
-                                    Style="{StaticResource BaseEntry}"
+                                    Style="{StaticResource BaseEntryStyle}"
                                     Placeholder="Enter user name"/>
 
             <controls:ExtendedEntry Grid.Row="1"
-                                    Style="{StaticResource BaseEntry}"
+                                    Style="{StaticResource BaseEntryStyle}"
                                     IsPassword="True"
                                     Placeholder="Enter password"/>
 
-            <Button Grid.Row="3" Text="Login" Style="{StaticResource AppButton}" Command="{Binding LoginCommand}"/>
+            <Button Grid.Row="3" Text="Login" Style="{StaticResource AppButtonStyle}" Command="{Binding LoginCommand}"/>
         </Grid>
 
         <Grid Grid.Row="2">
