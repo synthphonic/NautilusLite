@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Core;
 using NautilusLite.Forms.Mvvm.Navigation.Core;
+using NautilusLite.Infrastructure;
 using Xamarin.Forms;
 
 namespace NautilusLite.Forms.Mvvm.Navigation
@@ -64,15 +66,44 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 
 		public async Task NavigateAndSetAsFirstPageAsync(string firstPageKey, bool animated = false)
 		{
-			await _navigationPage.Navigation.PopToRootAsync(animated);
-			var rootPage = _navigationPage.Navigation.NavigationStack[0];
+			try
+			{
+				await _navigationPage.Navigation.PopToRootAsync(animated);
+				var rootPage = _navigationPage.Navigation.NavigationStack[0];
 
-			var pageMapperItem = PageNavigationMapper.Instance.GetPage(firstPageKey);
-			var newPage = FindAndCreate(pageMapperItem, null);
+				var pageMapperItem = PageNavigationMapper.Instance.GetPage(firstPageKey);
+				var newPage = FindAndCreate(pageMapperItem, null);
 
-			_navigationPage.Navigation.InsertPageBefore(newPage, rootPage);
+				_navigationPage.Navigation.InsertPageBefore(newPage, rootPage);
 
-			_navigationPage.Navigation.RemovePage(rootPage);
+				_navigationPage.Navigation.RemovePage(rootPage);
+			}
+			catch(InvalidCastException invalidCastEx)
+			{
+				DebugOutput.Write(GetType(), $"{invalidCastEx.Message}\n{invalidCastEx.StackTrace}");
+				throw;
+			}
+			catch (ApplicationException appEx)
+			{
+				DebugOutput.Write(GetType(), $"{appEx.Message}\n{appEx.StackTrace}");
+
+				if (appEx.InnerException != null)
+				{
+					DebugOutput.Write(GetType(), $"{appEx.InnerException.Message}\n{appEx.InnerException.StackTrace}");
+				}
+				
+				throw;
+			}
+			catch (SystemException sysEx)
+			{
+				DebugOutput.Write(GetType(), $"{sysEx.Message}\n{sysEx.StackTrace}");
+				throw;
+			}
+			catch (Exception ex)
+			{
+				DebugOutput.Write(GetType(), $"{ex.Message}");
+				throw;
+			}
 		}
 
 		private Page FindAndCreate(PageMapperItem pageMapperItem, object parameter)
