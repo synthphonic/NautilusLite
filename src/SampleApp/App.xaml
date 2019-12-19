@@ -11,10 +11,23 @@
             <Color x:Key="Background">#2C96C4</Color>
             <Color x:Key="LineColor">Brown</Color>
             <Color x:Key="TextColor">LightBlue</Color>
+            <Color x:Key="OrangeColor">#FD9229</Color>
+            <Color x:Key="DarkGray">#292929</Color>
+            <Color x:Key="PaleWhite">#D8D8D8</Color>
+            <Color x:Key="PalePaleWhite">#A2A2A2</Color>
+            <Color x:Key="PageFadeColor">#AA000000</Color>
+            
+            <Color x:Key="AlmostBlack">#1E1E1E</Color>
+            
             <Color x:Key="UndefineColor">#E0E0E0</Color> <!-- not used -->
 
+            <!-- Base Styles -->
             <Style x:Key="BasePageStyle" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{StaticResource Gray}" />
+            </Style>
+
+            <Style x:Key="MainViewPageStyle" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />
             </Style>
 
             <Style x:Key="BaseEntryStyle" TargetType="controls:ExtendedEntry">
@@ -24,6 +37,7 @@
                 <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
+            <!-- End of Base Styles -->
 
 			<Style x:Key="AppButtonStyle" TargetType="Button">
 				<Setter Property="CornerRadius" Value="5" />

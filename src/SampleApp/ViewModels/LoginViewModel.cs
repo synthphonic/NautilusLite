@@ -2,8 +2,10 @@
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using NautilusLite.Forms;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
+using Xamarin.Forms;
 
 namespace SampleApp.ViewModels
 {
@@ -42,6 +44,9 @@ namespace SampleApp.ViewModels
 
 		private async Task DoLogin()
 		{
+			var bgcolor = (Color)Application.Current.Resources["AlmostBlack"];
+			NavigationPageHelper.NavigationPage.BarBackgroundColor = bgcolor;
+
 			await _navigator.NavigateAndSetAsFirstPageAsync("Main", true);
 		}
 		#endregion
