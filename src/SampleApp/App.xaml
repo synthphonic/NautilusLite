@@ -7,12 +7,17 @@
              mc:Ignorable="d" x:Class="SampleApp.App">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="Gray">#EBEBE9</Color>
             <Color x:Key="Background">#2C96C4</Color>
             <Color x:Key="LineColor">Brown</Color>
             <Color x:Key="TextColor">LightBlue</Color>
-            <Color x:Key="UndefineColor">#E0E0E0</Color>
+            <Color x:Key="UndefineColor">#E0E0E0</Color> <!-- not used -->
 
-            <Style x:Key="BaseEntry" TargetType="controls:ExtendedEntry">
+            <Style x:Key="BasePageStyle" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="{StaticResource Gray}" />
+            </Style>
+
+            <Style x:Key="BaseEntryStyle" TargetType="controls:ExtendedEntry">
                 <Setter Property="BorderColor" Value="{StaticResource LineColor}"/>
                 <Setter Property="BorderStyle" Value="Underline"/>
                 <Setter Property="PlaceholderColor" Value="{StaticResource LineColor}"/>
@@ -20,7 +25,7 @@
                 <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
 
-			<Style x:Key="AppButton" TargetType="Button">
+			<Style x:Key="AppButtonStyle" TargetType="Button">
 				<Setter Property="CornerRadius" Value="5" />
 				<Setter Property="BorderWidth" Value="1" />
 				<Setter Property="BorderColor" Value="{StaticResource LineColor}" />
