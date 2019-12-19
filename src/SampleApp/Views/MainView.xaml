@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" x:Class="SampleApp.Views.MainView"
              xmlns:viewmodels="clr-namespace:SampleApp.ViewModels"
+             xmlns:controls="clr-namespace:NautilusLite.Forms.Controls;assembly=NautilusLite"
              x:DataType="viewmodels:MainViewModel"
              Style="{StaticResource BasePageStyle}"
              xmlns:models="clr-namespace:SampleApp.Models">
@@ -16,26 +17,33 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0" >
+            <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="Center" >
+                <StackLayout>
+                    <Label Text="{Binding WelcomeMessage}" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
         </Grid>
         
         <Grid Grid.Row="1">
 
         </Grid>
 
+        <StackLayout Grid.Row="2" Orientation="Vertical" Padding="10">
+            <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="Center" >
+                <StackLayout BackgroundColor="Aqua">
+                    <controls:ExtendedEntry Text="{Binding MessageToAdd}"
+                                            Style="{StaticResource BaseEntryStyle}"
+                                            Placeholder="Enter user name"/>
+
+                    <Button Text="Send Message >" BackgroundColor="LawnGreen" Margin="20" Command="{Binding NavigateToProfileCommand}"/>
+
+                    <Button Text="Logout" BackgroundColor="LightBlue" Margin="20" Command="{Binding LogoutCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>        
+
         <Frame BackgroundColor="Black" Grid.Row="0" Grid.RowSpan="2"
                Margin="80,200,80,250"
                TranslationY="-25"/>
-
-        <StackLayout Grid.Row="2" Orientation="Vertical">
-            <StackLayout Orientation="Vertical" Spacing="5" VerticalOptions="Center" >
-                <StackLayout>
-                    <Label Text="{Binding WelcomeMessage}" HorizontalOptions="Center"/>
-
-                    <Entry Text="{Binding MessageToAdd}" />
-                    <Button Text="Send Message >" BackgroundColor="LawnGreen" Margin="20" Command="{Binding NavigateToProfileCommand}"/>
-                </StackLayout>
-
-            </StackLayout>
-        </StackLayout>        
     </Grid>
 </ContentPage>

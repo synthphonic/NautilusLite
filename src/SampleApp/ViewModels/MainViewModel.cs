@@ -6,17 +6,23 @@ using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 using SampleApp.Models;
-using SampleApp.Views;
 using SampleApp.Views.ViewParameters;
 
 namespace SampleApp.ViewModels
 {
 	public class MainViewModel : ViewModelBase
 	{
+		private readonly INavigationService _navigator;
 		private string _welcomeMessage;
 		private UserModel _user;
 		private ICommand _navigateToProfileCommand;
+		private ICommand _logoutCommand;
 		private string _messageToAdd;
+
+		public MainViewModel()
+		{
+			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
+		}
 
 		internal void Load()
 		{
@@ -68,6 +74,18 @@ namespace SampleApp.ViewModels
 			};
 
 			await navigator.NavigateToAsync("Profile", parameter, true);
+		}
+		#endregion
+
+		#region LogoutCommand
+		public ICommand LogoutCommand
+		{
+			get { return _logoutCommand ?? (_logoutCommand = new AsyncCommand(DoLogoutAsync)); }
+		}
+
+		private async Task DoLogoutAsync()
+		{
+			await _navigator.NavigateAndSetAsFirstPageAsync("Login", true);
 		}
 		#endregion
 	}
