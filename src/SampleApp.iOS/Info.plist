@@ -21,7 +21,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>XFTrainingPart1</string>
+	<string>nautiluslite-sdk</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.onesixtyone.nautiluslitesdk</string>
 	<key>CFBundleVersion</key>
