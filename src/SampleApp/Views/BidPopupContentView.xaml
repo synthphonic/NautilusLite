@@ -2,12 +2,29 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleApp.Views.BidPopupContentView"
-             BackgroundColor="BlueViolet">
+             BackgroundColor="{StaticResource OrangeColor}">
     <Grid>
-        <Label Text="Bid popup Content View"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"
+               Margin="10"
+               Padding="20"
+               Text="Some popup for more actions"
                HorizontalOptions="Center"
                VerticalOptions="Start"
-               TextColor="White"
+               TextColor="{StaticResource AlmostBlack}"
                FontSize="Large"/>
+        <StackLayout Grid.Row="1" HorizontalOptions="Center">
+            <Frame BackgroundColor="Transparent"
+                   BorderColor="{StaticResource AlmostBlack}"
+                   IsClippedToBounds="True"
+                   HasShadow="True"
+                   Padding="0"
+                   CornerRadius="5" HeightRequest="100" WidthRequest="300">
+            </Frame>
+        </StackLayout>
     </Grid>
 </ContentView>
