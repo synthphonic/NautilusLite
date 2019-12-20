@@ -37,7 +37,7 @@ namespace SampleApp.Views
 			_slideViewType = SlideViewType.Bid;
 
 			PageFader.IsVisible = true;
-			PageFader.Opacity = 0.3;
+			PageFader.Opacity = 0.5;
 
 			BidPopup.IsVisible = true;
 			await BidPopup.TranslateTo(0, Height - 200, 300, Easing.SinInOut);
@@ -48,10 +48,11 @@ namespace SampleApp.Views
 			_slideViewType = SlideViewType.Profile;
 
 			PageFader.IsVisible = true;
-			PageFader.Opacity = 0.3;
+			PageFader.Opacity = 0.5;
 
 			Profile.IsVisible = true;
 			await Profile.TranslateTo(0, Height - 600, 300, Easing.SinInOut);
+			Profile.LoadData();
 		}
 
 		public async Task PageFaderTappedAsync()
@@ -64,10 +65,12 @@ namespace SampleApp.Views
 					break;
 				case SlideViewType.Profile:
 					await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
+					Profile.UnLoadData();
 					Profile.IsVisible = false;
 					break;
 			}
 
+			PageFader.Opacity = 0;
 			PageFader.IsVisible = false;
 		}
 	}

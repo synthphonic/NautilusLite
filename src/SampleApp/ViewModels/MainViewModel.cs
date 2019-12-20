@@ -127,8 +127,16 @@ namespace SampleApp.ViewModels
 				case "Bid":
 					await _view.SlideUpAsync();	 
 					break;
-				case "Others":
-					PopupDialog.ShowAlert("View Animation", "Need to implement");
+				case "Logout":
+					PopupDialog.ShowConfirm("Logout", "Confirm logout?", "Yes", "No", async (confirm) =>
+						   {
+							   if (confirm)
+							   {
+								   await _navigator.NavigateAndSetAsFirstPageAsync("Login", true);
+							   }
+						   });
+					
+					//PopupDialog.ShowAlert("View Animation", "Need to implement");
 					break;
 
 			}			

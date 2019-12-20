@@ -6,7 +6,9 @@
              mc:Ignorable="d" x:Class="SampleApp.Views.MainView"
              xmlns:viewmodels="clr-namespace:SampleApp.ViewModels"
              xmlns:controls="clr-namespace:NautilusLite.Forms.Controls;assembly=NautilusLite"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:views="clr-namespace:SampleApp.Views"
+             
              x:DataType="viewmodels:MainViewModel"
              x:Name="MainViewPage"
              BackgroundColor="{StaticResource AlmostBlack}">
@@ -23,32 +25,35 @@
                        FontSize="Large"
                        FontAttributes="Bold"
                        TextColor="White"/>
+
+                            <!--BackgroundGradientEndColor="{Binding BackgroundGradientEndColor}"
+                            BackgroundGradientStartColor="{Binding BackgroundGradientStartColor}"-->
+
+                <StackLayout  WidthRequest="10">
+                    <!--<pancake:PancakeView
+                                Margin="0,50,0,0"
+                                BorderColor="Red"
+                                BackgroundGradientStartColor="DarkGray"
+                                BackgroundGradientEndColor="WhiteSmoke"
+                                BackgroundGradientAngle="0"
+                                CornerRadius="20"
+                                Elevation="4"
+                                HasShadow="True"
+                                HeightRequest="100"
+                                WidthRequest="200"
+                                HorizontalOptions="Center"/>-->
+                </StackLayout>
             </StackLayout>
         </Grid>
 
-        <Grid Grid.Row="1" BackgroundColor="{StaticResource DarkGray}">
+        <Grid Grid.Row="1" BackgroundColor="{StaticResource AlmostBlack}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--<StackLayout Grid.Column="0" Padding="20" VerticalOptions="Center">
-                <Label Text="Auction of Art de Paris"
-                        TextColor="{StaticResource PaleWhite}"
-                        VerticalOptions="End"
-                        FontAttributes="Bold"
-                        FontSize="18"/>
-
-                <Label Text="Starting bid $4000"
-                        Grid.Row="1" Grid.Column="0"
-                        VerticalOptions="Start"
-                        TextColor="{StaticResource PalePaleWhite}"
-                        FontAttributes="Bold"
-                        FontSize="12"/>
-            </StackLayout>-->
-
-            <Button Text="?"
+            <Button Text="LOGOUT"
                     TextColor="White"
                     FontAttributes="Bold"
                     CornerRadius="20"
@@ -58,7 +63,7 @@
                     HeightRequest="40"
                     VerticalOptions="Center"
                     BackgroundColor="{StaticResource OrangeColor}"
-                    Command="{Binding SlideViewCommand}" CommandParameter="Others" />
+                    Command="{Binding SlideViewCommand}" CommandParameter="Logout" />
 
             <Button Text="BID"
                     TextColor="White"
@@ -90,7 +95,7 @@
             x:Name="PageFader"
             Grid.Row="0"
             Grid.RowSpan="1"
-            BackgroundColor="{StaticResource PageFadeColor}"
+            BackgroundColor="{StaticResource AlmostBlack}"
             IsVisible="false"
             Opacity="0">
             <BoxView.GestureRecognizers>

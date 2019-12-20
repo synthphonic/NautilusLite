@@ -34,6 +34,7 @@ namespace SampleApp.iOS
 		{
 			NautilusLite.iOS.NautilusServices.Init();
 			ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
+			Xamarin.Forms.PancakeView.iOS.PancakeViewRenderer.Init();
 		}
 	}
 }
