@@ -24,11 +24,16 @@ namespace SampleApp.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
-			NautilusLite.iOS.NautilusServices.Init();
-
+			InitializeLibraries();
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
+		}
+
+		private void InitializeLibraries()
+		{
+			NautilusLite.iOS.NautilusServices.Init();
+			ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
 		}
 	}
 }

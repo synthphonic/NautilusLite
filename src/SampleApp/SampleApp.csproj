@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -20,5 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NautilusLite\NautilusLite.csproj" />
+    <ProjectReference Include="..\NautilusLite.Forms\NautilusLite.Forms.csproj" />
   </ItemGroup>
 </Project>

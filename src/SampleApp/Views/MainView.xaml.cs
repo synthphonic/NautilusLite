@@ -16,6 +16,7 @@ namespace SampleApp.Views
 	public partial class MainView : ContentPage, IMainView
 	{
 		private MainViewModel _vm;
+		private SlideViewType _slideViewType = SlideViewType.None;
 
 		public MainView()
 		{
@@ -33,14 +34,40 @@ namespace SampleApp.Views
 
 		public async Task SlideUpAsync()
 		{
+			_slideViewType = SlideViewType.Bid;
+
 			PageFader.IsVisible = true;
 			PageFader.Opacity = 0.3;
-			await BidPopup.TranslateTo(0, Height-200, 300, Easing.SinInOut);
+
+			BidPopup.IsVisible = true;
+			await BidPopup.TranslateTo(0, Height - 200, 300, Easing.SinInOut);
+		}
+
+		public async Task SlideUpProfileAsync()
+		{
+			_slideViewType = SlideViewType.Profile;
+
+			PageFader.IsVisible = true;
+			PageFader.Opacity = 0.3;
+
+			Profile.IsVisible = true;
+			await Profile.TranslateTo(0, Height - 600, 300, Easing.SinInOut);
 		}
 
 		public async Task PageFaderTappedAsync()
 		{
-			await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
+			switch(_slideViewType)
+			{
+				case SlideViewType.Bid:
+					await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
+					BidPopup.IsVisible = false;
+					break;
+				case SlideViewType.Profile:
+					await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
+					Profile.IsVisible = false;
+					break;
+			}
+
 			PageFader.IsVisible = false;
 		}
 	}
@@ -49,5 +76,13 @@ namespace SampleApp.Views
 	{
 		Task SlideUpAsync();
 		Task PageFaderTappedAsync();
+		Task SlideUpProfileAsync();
+	}
+
+	public enum SlideViewType
+	{
+		Bid,
+		Profile,
+		None,
 	}
 }

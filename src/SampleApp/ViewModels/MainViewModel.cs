@@ -21,6 +21,7 @@ namespace SampleApp.ViewModels
 		private ICommand _logoutCommand;
 		private ICommand _makeABidCommand;
 		private ICommand _pageFaderTapCommand;
+		private ICommand _showProfileCommand;
 		private IMainView _view;
 
 		public MainViewModel()
@@ -121,5 +122,16 @@ namespace SampleApp.ViewModels
 			await _view.PageFaderTappedAsync();
 		}
 		#endregion
+
+		public ICommand ShowProfileCommand
+		{
+			get { return _showProfileCommand ?? (_showProfileCommand = new AsyncCommand(ShowProfileAsync)); }
+		}
+
+		private async Task ShowProfileAsync()
+		{
+			await _view.SlideUpProfileAsync(); 
+		}
+
 	}
 }
