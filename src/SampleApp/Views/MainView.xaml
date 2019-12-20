@@ -58,7 +58,7 @@
                     HeightRequest="40"
                     VerticalOptions="Center"
                     BackgroundColor="{StaticResource OrangeColor}"
-                    Command="{Binding MakeABidCommand}"/>
+                    Command="{Binding SlideViewCommand}" CommandParameter="Others" />
 
             <Button Text="BID"
                     TextColor="White"
@@ -70,7 +70,7 @@
                     HeightRequest="40"
                     VerticalOptions="Center"
                     BackgroundColor="{StaticResource OrangeColor}"
-                    Command="{Binding MakeABidCommand}"/>
+                    Command="{Binding SlideViewCommand}" CommandParameter="Bid" />
 
             <Button Text="PROFILE"
                     TextColor="White"
@@ -82,7 +82,7 @@
                     HeightRequest="40"
                     VerticalOptions="Center"
                     BackgroundColor="LightSeaGreen"
-                    Command="{Binding ShowProfileCommand}"/>
+                    Command="{Binding SlideViewCommand}" CommandParameter="Profile" />
 
             </Grid>
 

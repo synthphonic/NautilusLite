@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using NautilusLite.Forms.Dialog;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 using SampleApp.Models;
@@ -19,9 +20,8 @@ namespace SampleApp.ViewModels
 		private UserModel _user;
 		private ICommand _navigateToProfileCommand;
 		private ICommand _logoutCommand;
-		private ICommand _makeABidCommand;
+		private ICommand _slideViewCommand;
 		private ICommand _pageFaderTapCommand;
-		private ICommand _showProfileCommand;
 		private IMainView _view;
 
 		public MainViewModel()
@@ -99,18 +99,6 @@ namespace SampleApp.ViewModels
 		}
 		#endregion
 
-		#region MakeABidCommand
-		public ICommand MakeABidCommand
-		{
-			get { return _makeABidCommand ?? (_makeABidCommand = new AsyncCommand(SlideUpBidView)); }
-		}
-
-		private async Task SlideUpBidView()
-		{
-			await _view.SlideUpAsync();
-		}
-		#endregion
-
 		#region PageFaderTapCommand
 		public ICommand PageFaderTapCommand
 		{
@@ -123,15 +111,28 @@ namespace SampleApp.ViewModels
 		}
 		#endregion
 
-		public ICommand ShowProfileCommand
+		#region MakeABidCommand
+		public ICommand SlideViewCommand
 		{
-			get { return _showProfileCommand ?? (_showProfileCommand = new AsyncCommand(ShowProfileAsync)); }
+			get { return _slideViewCommand ?? (_slideViewCommand = new AsyncCommand<string>(DoSlideView)); }
 		}
 
-		private async Task ShowProfileAsync()
+		private async Task DoSlideView(string parameter)
 		{
-			await _view.SlideUpProfileAsync(); 
-		}
+			switch(parameter)
+			{
+				case "Profile":
+					await _view.SlideUpProfileAsync();
+					break;
+				case "Bid":
+					await _view.SlideUpAsync();	 
+					break;
+				case "Others":
+					PopupDialog.ShowAlert("View Animation", "Need to implement");
+					break;
 
+			}			
+		}
+		#endregion
 	}
 }
