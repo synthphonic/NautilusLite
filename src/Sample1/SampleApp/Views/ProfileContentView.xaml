@@ -20,7 +20,7 @@
                             Grid.RowSpan="2"
                             BorderThickness="2"
                             BorderColor="{StaticResource OrangeColor}"
-                            Source="tony-stark.jpg"
+                            Source="tony_stark.jpg"
                             HeightRequest="100"
                             WidthRequest="100"
                             VerticalOptions="Start"

@@ -130,6 +130,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\tony-stark.jpg" />
+    <BundleResource Include="Resources\tony_stark.jpg" />
   </ItemGroup>
 </Project>
