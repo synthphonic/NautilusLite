@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Acr.UserDialogs;
+using Xamarin.Forms;
 
 namespace NautilusLite.Forms.Dialog
 {
@@ -53,6 +54,20 @@ namespace NautilusLite.Forms.Dialog
 			}
 
 			UserDialogs.Instance.ActionSheet(actionSheetConfig);
+		}
+		
+		public static void ShowToast(string toastMessage, Color? backgroundColor, Color? messageTextColor, TimeSpan duration = default)
+		{
+			var toastConfig = new ToastConfig(toastMessage)
+			{
+				Duration = duration == default ? TimeSpan.FromSeconds(3) : duration,
+				Message = toastMessage,
+				BackgroundColor = !backgroundColor.HasValue ? Color.FromRgba(0, 0, 0, 0.7) : backgroundColor,
+				MessageTextColor = !messageTextColor.HasValue ? Color.White : messageTextColor,
+				Position = ToastPosition.Bottom
+			};
+
+			UserDialogs.Instance.Toast(toastConfig);
 		}
 
 		public static void HideAndDisposeProgress(IProgressDialog progressDialog)
