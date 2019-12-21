@@ -6,42 +6,50 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              xmlns:controls="clr-namespace:NautilusLite.Forms.Controls;assembly=NautilusLite"
              ios:Page.UseSafeArea="true"
+             Visual="Material"
              mc:Ignorable="d"
              BackgroundColor="{StaticResource Background}"
              x:Class="SampleApp.Views.LoginView">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <StackLayout Padding="10,10,10,10" Orientation="Vertical" VerticalOptions="Center">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="Android" Value="10,0,10,0"/>
+                        <On Platform="iOS" Value="10,0,10,0"/>
+                    </OnPlatform>
+                </StackLayout.Padding>
                 <Label Text="NautilusLite Mobile SDK v1.0" FontSize="Title" FontAttributes="Bold"/>
                 <Label Text="yet another reference app..." FontSize="Medium" FontAttributes="Italic"/>
             </StackLayout>
         </Grid>
 
-        <Grid Grid.Row="1" Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" >
+            <StackLayout Grid.Row="0" Margin="20,0,20,0" VerticalOptions="Center">
+                <Entry Style="{StaticResource BaseEntryStyle}"
+                                        Placeholder="Enter user name"/>
 
-            <controls:ExtendedEntry Grid.Row="0"
-                                    Style="{StaticResource BaseEntryStyle}"
-                                    Placeholder="Enter user name"/>
+                <Entry Style="{StaticResource BaseEntryStyle}"
+                                        IsPassword="True"
+                                        Placeholder="Enter password"/>
 
-            <controls:ExtendedEntry Grid.Row="1"
-                                    Style="{StaticResource BaseEntryStyle}"
-                                    IsPassword="True"
-                                    Placeholder="Enter password"/>
+                <!--<controls:ExtendedEntry Style="{StaticResource BaseEntryStyle}"
+                                        Placeholder="Enter user name"/>
 
-            <Button Grid.Row="3" Text="Login" Style="{StaticResource AppButtonStyle}" Command="{Binding LoginCommand}"/>
+                <controls:ExtendedEntry Style="{StaticResource BaseEntryStyle}"
+                                        IsPassword="True"
+                                        Placeholder="Enter password"/>-->
+                <Button Text="Login"
+                        Style="{StaticResource AppButtonStyle}"
+                        Command="{Binding LoginCommand}"/>
+            </StackLayout>
         </Grid>
 
         <Grid Grid.Row="2">
@@ -61,7 +69,7 @@
             </Label>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="3" >
             <Label Text="synthphonic labs 2019" HorizontalOptions="Center"/>
         </Grid>
     </Grid>
