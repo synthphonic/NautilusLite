@@ -72,7 +72,7 @@
           			<Setter.Value>
             			<OnPlatform x:TypeArguments="x:Double">
             				<On Platform="iOS">50</On>
-							<On Platform="Android">70</On>
+							<On Platform="Android">50</On>
                             <On Platform="UWP">50</On>
 						</OnPlatform>
           			</Setter.Value>
