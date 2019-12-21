@@ -71,24 +71,60 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40-2.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -126,6 +162,8 @@
     <ProjectReference Include="..\..\NautilusLite.iOS\NautilusLite.iOS.csproj">
       <Project>{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}</Project>
       <Name>NautilusLite.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
     <ProjectReference Include="..\SampleApp\SampleApp.csproj">
       <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
