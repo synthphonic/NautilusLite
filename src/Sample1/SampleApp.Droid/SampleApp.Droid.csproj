@@ -63,6 +63,9 @@
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>1.3.6</Version>
     </PackageReference>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.35</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -108,6 +111,10 @@
       <Generator></Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\appicon.png">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\tony_stark.jpg">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

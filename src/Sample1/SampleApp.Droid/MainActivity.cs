@@ -39,6 +39,7 @@ namespace _abc.Droid
 			NautilusLite.Droid.NautilusServices.Init();
 			ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
 			Xamarin.Forms.PancakeView.Droid.PancakeViewRenderer.Init();
+			Acr.UserDialogs.UserDialogs.Init(this);
 		}
 
 	}
