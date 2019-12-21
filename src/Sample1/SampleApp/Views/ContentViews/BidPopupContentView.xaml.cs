@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace SampleApp.Views
+namespace SampleApp.Views.ContentViews
 {
 	public partial class BidPopupContentView : ContentView
 	{

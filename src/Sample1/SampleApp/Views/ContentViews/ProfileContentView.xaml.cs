@@ -2,7 +2,7 @@
 using SampleApp.ViewModels;
 using Xamarin.Forms;
 
-namespace SampleApp.Views
+namespace SampleApp.Views.ContentViews
 {
 	public partial class ProfileContentView : ContentView
 	{

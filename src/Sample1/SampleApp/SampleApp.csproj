@@ -19,6 +19,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
     <Folder Include="Views\ViewParameters\" />
+    <Folder Include="Views\ContentViews\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\NautilusLite\NautilusLite.csproj" />
