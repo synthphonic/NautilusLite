@@ -1,4 +1,4 @@
-﻿namespace NautilusLite.iOS
+﻿namespace NautilusLite.Droid
 {
 	public class NautilusServices
 	{

@@ -233,11 +233,11 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NautilusLite.Droid\NautilusLite.Droid.csproj">
+    <ProjectReference Include="..\..\NautilusLite.Droid\NautilusLite.Droid.csproj">
       <Project>{5731C40C-36C7-46DD-801F-ED3FCB43D911}</Project>
       <Name>NautilusLite.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NautilusLite\NautilusLite.csproj">
+    <ProjectReference Include="..\..\NautilusLite\NautilusLite.csproj">
       <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
       <Name>NautilusLite</Name>
     </ProjectReference>
