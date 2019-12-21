@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:NautilusLite.Forms.Controls;assembly=NautilusLite"
              mc:Ignorable="d" x:Class="SampleApp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -25,21 +24,38 @@
             <Color x:Key="UndefineColor">#E0E0E0</Color> <!-- not used -->
 
             <!-- Base Styles -->
+            <!--
+                NOTE: Since in xamarin forms we already have
+                ios:Page.UseSafeArea="True"
+
+                we no longer need to supply the padding style for each page
+            -->
+            <!--<Style x:Key="ContentPagePlatformPadding" TargetType="ContentPage">                
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0,0,0,0"/>
+                            <On Platform="Android" Value="0,0,0,0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>-->
+
             <Style x:Key="BasePageStyle" TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="{StaticResource Gray}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />                
             </Style>
 
             <Style x:Key="MainViewPageStyle" TargetType="ContentPage">
                 <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />
             </Style>
 
-            <Style x:Key="BaseEntryStyle" TargetType="controls:ExtendedEntry">
+            <!--<Style x:Key="BaseEntryStyle" TargetType="controls:ExtendedEntry">
                 <Setter Property="BorderColor" Value="{StaticResource LineColor}"/>
                 <Setter Property="BorderStyle" Value="Underline"/>
                 <Setter Property="PlaceholderColor" Value="{StaticResource LineColor}"/>
                 <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
                 <Setter Property="BackgroundColor" Value="Transparent"/>
-            </Style>
+            </Style>-->
 
             <Style x:Key="HeaderLabelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
