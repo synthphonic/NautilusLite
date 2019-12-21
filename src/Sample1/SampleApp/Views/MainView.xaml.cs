@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using SampleApp.ViewModels;
 using NautilusLite.Forms;
+using NautilusLite.Infrastructure;
 
 namespace SampleApp.Views
 {
@@ -21,6 +22,9 @@ namespace SampleApp.Views
 		public MainView()
 		{
 			InitializeComponent();
+
+			NavigationPage.SetHasNavigationBar(this, false); // remove title and nav bar line
+
 			BindingContext = _vm = new MainViewModel();
 			_vm.SetView(this);
 		}
@@ -40,18 +44,24 @@ namespace SampleApp.Views
 			PageFader.Opacity = 0.5;
 
 			BidPopup.IsVisible = true;
-			await BidPopup.TranslateTo(0, Height - 200, 300, Easing.SinInOut);
+			await BidPopup.TranslateTo(0, Height - Profile.Height, 300, Easing.SinInOut);
 		}
 
 		public async Task SlideUpProfileAsync()
 		{
+			DebugOutput.Write(GetType(), $"Page Height={Height}");
+			DebugOutput.Write(GetType(), $"Profile Height={Profile.Height}");
+
+			Profile.HeightRequest = Height;
+			DebugOutput.Write(GetType(), $"Profile Height={Profile.Height}");
+
 			_slideViewType = SlideViewType.Profile;
 
 			PageFader.IsVisible = true;
 			PageFader.Opacity = 0.5;
 
 			Profile.IsVisible = true;
-			await Profile.TranslateTo(0, Height - 600, 300, Easing.SinInOut);
+			await Profile.TranslateTo(0, Height - Profile.Height, 300, Easing.SinInOut);
 			Profile.LoadData();
 		}
 
@@ -63,8 +73,19 @@ namespace SampleApp.Views
 					await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
 					BidPopup.IsVisible = false;
 					break;
+
 				case SlideViewType.Profile:
-					await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
+
+					switch (Device.RuntimePlatform)
+					{
+						case Device.iOS:
+							await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
+							break;
+						case Device.Android:
+							await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
+							break;
+					}
+					
 					Profile.UnLoadData();
 					Profile.IsVisible = false;
 					break;
