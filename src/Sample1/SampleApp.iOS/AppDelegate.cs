@@ -23,6 +23,7 @@ namespace SampleApp.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+			global::Xamarin.Forms.FormsMaterial.Init();
 
 			InitializeLibraries();
 			LoadApplication(new App());
