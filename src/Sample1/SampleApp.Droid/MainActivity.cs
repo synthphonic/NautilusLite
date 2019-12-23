@@ -42,6 +42,5 @@ namespace _abc.Droid
 			Xamarin.Forms.PancakeView.Droid.PancakeViewRenderer.Init();
 			Acr.UserDialogs.UserDialogs.Init(this);
 		}
-
 	}
 }
