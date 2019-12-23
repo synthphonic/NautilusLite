@@ -19,6 +19,7 @@
     <Folder Include="Forms\Mvvm\Navigation\Core\" />
     <Folder Include="Forms\Controls\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Infrastructure\IO\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
@@ -27,5 +28,6 @@
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />
     <PackageReference Include="Acr.UserDialogs" Version="7.0.35" />
     <PackageReference Include="MvvmLightLibsStd10" Version="5.4.1.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 </Project>
