@@ -9,8 +9,8 @@
              xmlns:viewmodels="clr-namespace:SampleApp.ViewModels"
              xmlns:contentviews="clr-namespace:SampleApp.Views.ContentViews"
              x:DataType="viewmodels:MainViewModel"
-             x:Name="MainViewPage"
-             Style="{DynamicResource BasePageStyle}">
+             BackgroundColor="{StaticResource AlmostBlack}"
+             x:Name="MainViewPage">
 
     <Grid RowSpacing="0">        
         <Grid.RowDefinitions>
@@ -18,33 +18,20 @@
             <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
 
+        <!-- Main Content Area Row = 0-->
         <Grid Grid.Row="0">
             <StackLayout>
-                <Label Text="Please show some love!" HorizontalOptions="Center"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       TextColor="White"/>
+                <Label Text="MY TO DO ITEMS" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White"/>
 
-                            <!--BackgroundGradientEndColor="{Binding BackgroundGradientEndColor}"
-                            BackgroundGradientStartColor="{Binding BackgroundGradientStartColor}"-->
+                <Grid>
+                    <CollectionView ItemsSource="{Binding Favorites}">
 
-                <StackLayout  WidthRequest="10">
-                    <!--<pancake:PancakeView
-                                Margin="0,50,0,0"
-                                BorderColor="Red"
-                                BackgroundGradientStartColor="DarkGray"
-                                BackgroundGradientEndColor="WhiteSmoke"
-                                BackgroundGradientAngle="0"
-                                CornerRadius="20"
-                                Elevation="4"
-                                HasShadow="True"
-                                HeightRequest="100"
-                                WidthRequest="200"
-                                HorizontalOptions="Center"/>-->
-                </StackLayout>
+                    </CollectionView>
+                </Grid>
             </StackLayout>
         </Grid>
 
+        <!-- StatusBar Area Row = 1-->
         <Grid Grid.Row="1" BackgroundColor="{StaticResource AlmostBlack}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -64,7 +51,7 @@
                     BackgroundColor="{StaticResource OrangeColor}"
                     Command="{Binding SlideViewCommand}" CommandParameter="Logout" />
 
-            <Button Text="BID"
+            <Button Text="FEATURES"
                     TextColor="White"
                     FontAttributes="Bold"
                     CornerRadius="20"

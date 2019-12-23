@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -18,6 +19,8 @@ namespace SampleApp.ViewModels
 		private string _welcomeMessage;
 		private string _messageToAdd;
 		private UserModel _user;
+		private ObservableCollection<TodoItem> _todoList;
+		private ObservableCollection<TodoItem> _favorites;		
 		private ICommand _navigateToProfileCommand;
 		private ICommand _logoutCommand;
 		private ICommand _slideViewCommand;
@@ -52,6 +55,18 @@ namespace SampleApp.ViewModels
 		{
 			get { return _user; }
 			set { Set(ref _user, value); }
+		}
+
+		public ObservableCollection<TodoItem> TodoList
+		{
+			get { return _todoList; }
+			set { Set(ref _todoList, value); }
+		}
+
+		public ObservableCollection<TodoItem> Favorites
+		{
+			get { return _favorites; }
+			set { Set(ref _favorites, value); }
 		}
 
 		public string WelcomeMessage
