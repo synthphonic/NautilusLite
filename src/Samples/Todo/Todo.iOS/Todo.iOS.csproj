@@ -155,27 +155,29 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\NautilusLite\NautilusLite.csproj">
-      <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
-      <Name>NautilusLite</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\NautilusLite.iOS\NautilusLite.iOS.csproj">
-      <Project>{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}</Project>
-      <Name>NautilusLite.iOS</Name>
-      <IsAppExtension>false</IsAppExtension>
-      <IsWatchApp>false</IsWatchApp>
-    </ProjectReference>
-    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
-      <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
-      <Name>SampleApp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\tony_stark.jpg" />
     <BundleResource Include="Resources\Fonts\fa-regular-400.ttf" />
     <BundleResource Include="Resources\Fonts\fa-solid-900.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Todo\Todo.csproj">
+      <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
+      <Name>Todo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NautilusLite.iOS\NautilusLite.iOS.csproj">
+      <Project>{D6D0C4D4-0C2B-4F83-AD31-41C552B18A27}</Project>
+      <Name>NautilusLite.iOS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NautilusLite.Forms\NautilusLite.Forms.csproj">
+      <Project>{761E96C0-D771-497E-A763-6AB6230E1082}</Project>
+      <Name>NautilusLite.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\NautilusLite\NautilusLite.csproj">
+      <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
+      <Name>NautilusLite</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

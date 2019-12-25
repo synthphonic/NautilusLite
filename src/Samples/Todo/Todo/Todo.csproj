@@ -27,7 +27,7 @@
     <Folder Include="Xaml\AttachedProperties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NautilusLite\NautilusLite.csproj" />
-    <ProjectReference Include="..\..\NautilusLite.Forms\NautilusLite.Forms.csproj" />
+    <ProjectReference Include="..\..\..\NautilusLite\NautilusLite.csproj" />
+    <ProjectReference Include="..\..\..\NautilusLite.Forms\NautilusLite.Forms.csproj" />
   </ItemGroup>
 </Project>

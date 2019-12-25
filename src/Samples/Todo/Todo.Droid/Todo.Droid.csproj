@@ -127,21 +127,21 @@
     <Folder Include="Assets\Fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleApp\SampleApp.csproj">
-      <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
-      <Name>SampleApp</Name>
+    <ProjectReference Include="..\..\..\NautilusLite.Forms\NautilusLite.Forms.csproj">
+      <Project>{761E96C0-D771-497E-A763-6AB6230E1082}</Project>
+      <Name>NautilusLite.Forms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NautilusLite.Droid\NautilusLite.Droid.csproj">
+    <ProjectReference Include="..\..\..\NautilusLite.Droid\NautilusLite.Droid.csproj">
       <Project>{5731C40C-36C7-46DD-801F-ED3FCB43D911}</Project>
       <Name>NautilusLite.Droid</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NautilusLite\NautilusLite.csproj">
+    <ProjectReference Include="..\..\..\NautilusLite\NautilusLite.csproj">
       <Project>{ECF57DE5-69A3-4FF0-8851-DBE5A9AC4EC2}</Project>
       <Name>NautilusLite</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\NautilusLite.Forms\NautilusLite.Forms.csproj">
-      <Project>{761E96C0-D771-497E-A763-6AB6230E1082}</Project>
-      <Name>NautilusLite.Forms</Name>
+    <ProjectReference Include="..\Todo\Todo.csproj">
+      <Project>{05625410-85B9-47AF-B0A6-9F1DA4ABAC6B}</Project>
+      <Name>Todo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
