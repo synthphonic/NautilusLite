@@ -21,7 +21,17 @@ namespace SampleApp.UWP
         {
             this.InitializeComponent();
 
+            InitializeLibraries();
             LoadApplication(new SampleApp.App());
         }
+
+        private void InitializeLibraries()
+        {
+            NautilusLite.UWP.NautilusServices.Init();
+            ImageCircle.Forms.Plugin.UWP.ImageCircleRenderer.Init();
+            Xamarin.Forms.PancakeView.UWP.PancakeViewRenderer.Init();
+        }
+
+
     }
 }
