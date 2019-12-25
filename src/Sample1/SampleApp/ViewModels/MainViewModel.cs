@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -7,6 +8,7 @@ using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Forms.Dialog;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
+using SampleApp.Database;
 using SampleApp.Models;
 using SampleApp.Views;
 using SampleApp.Views.ViewParameters;
@@ -20,11 +22,12 @@ namespace SampleApp.ViewModels
 		private string _messageToAdd;
 		private UserModel _user;
 		private ObservableCollection<TodoItem> _todoList;
-		private ObservableCollection<TodoItem> _favorites;		
+		private ObservableCollection<TodoItem> _favorites;
 		private ICommand _navigateToProfileCommand;
 		private ICommand _logoutCommand;
 		private ICommand _slideViewCommand;
 		private ICommand _pageFaderTapCommand;
+		private ICommand _navigateToDetailToDoItemCommand;
 		private IMainView _view;
 
 		public MainViewModel()
@@ -48,6 +51,9 @@ namespace SampleApp.ViewModels
 			};
 
 			User = user;
+
+			TodoList = new ObservableCollection<TodoItem>(TodoRepository.Instance.GetAll());
+			Favorites = new ObservableCollection<TodoItem>(TodoList.Where(x => x.IsFavorite).ToList());
 		}
 
 		#region Binding properties		
@@ -79,6 +85,23 @@ namespace SampleApp.ViewModels
 		{
 			get { return _messageToAdd; }
 			set { Set(ref _messageToAdd, value); }
+		}
+		#endregion
+
+		#region NavigateToDetailToDoItemCommand;
+		public ICommand NavigateToDetailToDoItemCommand
+		{
+			get { return _navigateToDetailToDoItemCommand ?? (_navigateToDetailToDoItemCommand = new AsyncCommand<TodoItem>(NavigateToDetailTodoAsync)); }
+		}
+
+		private async Task NavigateToDetailTodoAsync(TodoItem todoItem)
+		{
+			var parameter = new TodoItemParameter
+			{
+				Id = todoItem.Id
+			};
+
+			await _navigator.NavigateToAsync("TodoItemDetail", parameter, true);
 		}
 		#endregion
 
@@ -151,9 +174,7 @@ namespace SampleApp.ViewModels
 							   }
 						   });
 					
-					//PopupDialog.ShowAlert("View Animation", "Need to implement");
 					break;
-
 			}			
 		}
 		#endregion

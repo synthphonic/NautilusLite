@@ -12,6 +12,7 @@ namespace SampleApp
 			instance.Register("Main", typeof(MainView));
 			instance.Register("Profile", typeof(ProfileView));
 			instance.Register("ForgotPassword", typeof(ForgotPasswordView));
+			instance.Register("TodoItemDetail", typeof(TodoItemDetailView));
 
 			return instance;
 		}

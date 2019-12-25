@@ -1,6 +1,9 @@
 ﻿using NautilusLite;
 using Xamarin.Forms;
 using SampleApp.Views;
+using SampleApp.Database;
+using SampleApp.DesignData;
+using System.Linq;
 
 namespace SampleApp
 {
@@ -17,6 +20,8 @@ namespace SampleApp
 				.RegisterPages(AppStartup.RegisterPages)
 				.UseRootPage(typeof(LoginView))
 				.Initialize();
+
+			TodoRepository.Instance.InitializeData(DesignDataset.CreateTodoItems().ToList());
 		}
 
 		protected override void OnStart()

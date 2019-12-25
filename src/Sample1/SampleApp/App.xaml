@@ -23,6 +23,26 @@
             
             <Color x:Key="UndefineColor">#E0E0E0</Color> <!-- not used -->
 
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegularFontFamily">
+                <On Platform="Android" Value="Fonts/fa-regular-400.ttf#Font Awesome 5 Free"/>
+                <On Platform="iOS" Value="FontAwesome5Free-Regular"/>
+                <On Platform="UWP" Value="fa-regular-400.ttf#Font Awesome 5 Free"/>
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeSolidFontFamily">
+                <On Platform="Android" Value="Fonts/fa-solid-900.ttf#Font Awesome 5 Free"/>
+                <On Platform="iOS" Value="FontAwesome5Free-Solid"/>
+                <On Platform="UWP" Value="fa-regular-400.ttf#Font Awesome 5 Free"/>
+            </OnPlatform>
+
+            <Style x:Key="IconStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource FontAwesomeRegularFontFamily}"/>
+            </Style>
+
+            <Style x:Key="IconStyleSolid" TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource FontAwesomeSolidFontFamily}"/>
+            </Style>
+
             <!-- Base Styles -->
             <!--
                 NOTE: Since in xamarin forms we already have
@@ -41,21 +61,15 @@
                 </Setter>
             </Style>-->
 
-            <Style x:Key="BasePageStyle" TargetType="ContentPage">
+            <Style x:Key="SpanLinkLabelStyle" TargetType="Span">
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+            </Style>
+            
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />                
             </Style>
-
-            <Style x:Key="MainViewPageStyle" TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />
-            </Style>
-
-            <!--<Style x:Key="BaseEntryStyle" TargetType="controls:ExtendedEntry">
-                <Setter Property="BorderColor" Value="{StaticResource LineColor}"/>
-                <Setter Property="BorderStyle" Value="Underline"/>
-                <Setter Property="PlaceholderColor" Value="{StaticResource LineColor}"/>
-                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-            </Style>-->
 
             <Style x:Key="HeaderLabelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
@@ -75,15 +89,32 @@
                 <Setter Property="TextColor" Value="LightGray" />
             </Style>
 
+            <Style x:Key="ButtonOrangeStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{StaticResource AlmostBlack}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}" />
+            </Style>
+
+            <Style x:Key="EntryOrangeStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
+            </Style>
+
+            <Style x:Key="LabelOrangeStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
+            </Style>
+
+            <Style x:Key="TitleLabelOrangeStyle" TargetType="Label" BasedOn="{StaticResource LabelOrangeStyle}">
+                <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
+            </Style>
+
             <!-- End of Base Styles -->
 
-			<Style x:Key="AppButtonStyle" TargetType="Button">
+			<Style x:Key="AppButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonOrangeStyle}">
 				<Setter Property="CornerRadius" Value="5" />
 				<Setter Property="BorderWidth" Value="1" />
-				<Setter Property="BorderColor" Value="{StaticResource LineColor}" />
+				<!--<Setter Property="BorderColor" Value="{StaticResource LineColor}" />-->
 				<Setter Property="FontSize" Value="20" />
 				<Setter Property="TextColor" Value="{StaticResource LineColor}" />
-				<Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+				<!--<Setter Property="BackgroundColor" Value="{StaticResource Background}" />-->
 			 	<Setter Property="HeightRequest">
           			<Setter.Value>
             			<OnPlatform x:TypeArguments="x:Double">
