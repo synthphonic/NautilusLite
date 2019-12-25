@@ -172,5 +172,10 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\tony_stark.jpg" />
+    <BundleResource Include="Resources\Fonts\fa-regular-400.ttf" />
+    <BundleResource Include="Resources\Fonts\fa-solid-900.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
   </ItemGroup>
 </Project>

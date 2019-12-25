@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using NautilusLite.iOS.Services;
 using UIKit;
 
 namespace SampleApp.iOS
@@ -36,6 +37,8 @@ namespace SampleApp.iOS
 			NautilusLite.iOS.NautilusServices.Init();
 			ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
 			Xamarin.Forms.PancakeView.iOS.PancakeViewRenderer.Init();
+
+			//FontInfoHelper.OutputInstalledFonts();
 		}
 	}
 }

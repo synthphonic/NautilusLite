@@ -32,5 +32,10 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>CFBundleName</key>
 	<string>NautilusLiteSdk</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>/Fonts/fa-regular-400.ttf</string>
+		<string>/Fonts/fa-solid-900.ttf</string>
+	</array>
 </dict>
 </plist>
