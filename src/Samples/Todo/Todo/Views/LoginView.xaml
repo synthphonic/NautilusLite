@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true"
              Visual="Material"
@@ -22,10 +23,21 @@
                     <OnPlatform x:TypeArguments="Thickness">
                         <On Platform="Android" Value="10,0,10,0"/>
                         <On Platform="iOS" Value="10,0,10,0"/>
+                        <On Platform="UWP" Value="10,0,10,0"/>
                     </OnPlatform>
                 </StackLayout.Padding>
-                <Label Style="{StaticResource TitleLabelOrangeStyle}" Text="NautilusLite Mobile SDK v1.0" FontSize="Title" FontAttributes="Bold"/>
-                <Label Style="{StaticResource TitleLabelOrangeStyle}" Text="yet another reference app..." FontSize="Medium" FontAttributes="Italic"/>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="My TODO" Style="{StaticResource TitleLabelOrangeStyle}" FontSize="Title" FontAttributes="Bold"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Style="{StaticResource TitleLabelOrangeStyle}" Text="Nautilus Lite Mobile SDK v1.0" FontSize="Large"/>
+                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                            <Span Style="{StaticResource TitleLabelOrangeStyle}" Text="yet another reference app..." FontSize="Medium" FontAttributes="Italic"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </StackLayout>
         </Grid>
 
