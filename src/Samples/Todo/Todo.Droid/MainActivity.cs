@@ -8,7 +8,7 @@ using Android.Widget;
 using Android.OS;
 using Todo;
 
-namespace _abc.Droid
+namespace Todo.Droid
 {
 	[Activity(Label = "Todo-NautilusLite", Icon = "@mipmap/appicon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
