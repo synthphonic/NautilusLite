@@ -66,6 +66,10 @@
                 <Setter Property="TextDecorations" Value="Underline"/>
             </Style>
             
+            <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource AlmostBlack}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}"/>
+            </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}" />                
