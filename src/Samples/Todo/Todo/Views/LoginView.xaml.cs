@@ -1,8 +1,8 @@
 ﻿using NautilusLite.Forms;
 using Xamarin.Forms;
-using SampleApp.ViewModels;
+using Todo.ViewModels;
 
-namespace SampleApp.Views
+namespace Todo.Views
 {
 	public partial class LoginView : ContentPage
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 
-namespace SampleApp.Models
+namespace Todo.Models
 {
 	public class TodoItem : ViewModelBase
 	{

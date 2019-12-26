@@ -1,11 +1,11 @@
 ﻿using NautilusLite;
 using Xamarin.Forms;
-using SampleApp.Views;
-using SampleApp.Database;
-using SampleApp.DesignData;
+using Todo.Views;
+using Todo.Database;
+using Todo.DesignData;
 using System.Linq;
 
-namespace SampleApp
+namespace Todo
 {
 	public partial class App : Application
 	{

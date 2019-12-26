@@ -8,12 +8,12 @@ using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Forms.Dialog;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
-using SampleApp.Database;
-using SampleApp.Models;
-using SampleApp.Views;
-using SampleApp.Views.ViewParameters;
+using Todo.Database;
+using Todo.Models;
+using Todo.Views;
+using Todo.Views.ViewParameters;
 
-namespace SampleApp.ViewModels
+namespace Todo.ViewModels
 {
 	public class MainViewModel : ViewModelBase
 	{

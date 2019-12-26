@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using SampleApp.ViewModels;
-using SampleApp.Views.ViewParameters;
+using Todo.ViewModels;
+using Todo.Views.ViewParameters;
 
-namespace SampleApp.Views
+namespace Todo.Views
 {
 	public partial class ProfileView : ContentPage
 	{

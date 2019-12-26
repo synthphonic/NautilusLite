@@ -5,10 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             mc:Ignorable="d" x:Class="SampleApp.Views.MainView"
-             xmlns:viewmodels="clr-namespace:SampleApp.ViewModels"
-             xmlns:attachedprop="clr-namespace:SampleApp.Xaml.AttachedProperties"
-             xmlns:contentviews="clr-namespace:SampleApp.Views.ContentViews"             
+             mc:Ignorable="d" x:Class="Todo.Views.MainView"
+             xmlns:viewmodels="clr-namespace:Todo.ViewModels"
+             xmlns:attachedprop="clr-namespace:Todo.Xaml.AttachedProperties"
+             xmlns:contentviews="clr-namespace:Todo.Views.ContentViews"             
              x:Name="MainViewPage">
 
     <Grid RowSpacing="0">        

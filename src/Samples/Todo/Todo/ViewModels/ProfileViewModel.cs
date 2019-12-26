@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
-using SampleApp.Views.ViewParameters;
+using Todo.Views.ViewParameters;
 
-namespace SampleApp.ViewModels
+namespace Todo.ViewModels
 {
 	public class ProfileViewModel : ViewModelBase
 	{

@@ -2,7 +2,7 @@
 using NautilusLite.Forms.Mvvm.Navigation;
 using Xamarin.Forms;
 
-namespace SampleApp
+namespace Todo
 {
 	public class NavSvc //: INavigationService
 	{

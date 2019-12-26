@@ -1,8 +1,8 @@
-﻿using SampleApp.ViewModels;
-using SampleApp.Views.ViewParameters;
+﻿using Todo.ViewModels;
+using Todo.Views.ViewParameters;
 using Xamarin.Forms;
 
-namespace SampleApp.Views
+namespace Todo.Views
 {
 	public partial class TodoItemDetailView : ContentPage, ITodoItemDetailView
 	{

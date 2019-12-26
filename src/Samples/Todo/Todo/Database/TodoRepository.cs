@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using SampleApp.Models;
+using Todo.Models;
 
-namespace SampleApp.Database
+namespace Todo.Database
 {
 	public class TodoRepository
 	{

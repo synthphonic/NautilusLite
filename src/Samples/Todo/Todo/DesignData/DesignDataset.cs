@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using SampleApp.Models;
+using Todo.Models;
 
-namespace SampleApp.DesignData
+namespace Todo.DesignData
 {
 	public static class DesignDataset
 	{

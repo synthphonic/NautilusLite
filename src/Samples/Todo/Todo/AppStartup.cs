@@ -1,7 +1,7 @@
 ﻿using NautilusLite.Forms.Mvvm.Navigation;
-using SampleApp.Views;
+using Todo.Views;
 
-namespace SampleApp
+namespace Todo
 {
 	public static class AppStartup
 	{

@@ -5,11 +5,11 @@
              ios:Page.UseSafeArea="True"
              BackgroundColor="{StaticResource AlmostBlack}"
              Visual="Material"
-             xmlns:vm="clr-namespace:SampleApp.ViewModels"
-             xmlns:converters="clr-namespace:SampleApp.Converters"
-             xmlns:attachprop="clr-namespace:SampleApp.Xaml.AttachedProperties"
+             xmlns:vm="clr-namespace:Todo.ViewModels"
+             xmlns:converters="clr-namespace:Todo.Converters"
+             xmlns:attachprop="clr-namespace:Todo.Xaml.AttachedProperties"
              x:DataType="vm:TodoItemDetailViewModel"
-             x:Class="SampleApp.Views.TodoItemDetailView">
+             x:Class="Todo.Views.TodoItemDetailView">
 
     <ContentPage.Resources>
         <converters:EntryNameConverter x:Key="ItemNameConverter" />

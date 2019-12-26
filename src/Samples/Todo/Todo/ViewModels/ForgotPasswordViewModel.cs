@@ -1,7 +1,7 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 
-namespace SampleApp.ViewModels
+namespace Todo.ViewModels
 {
 	public class ForgotPasswordViewModel : ViewModelBase
 	{

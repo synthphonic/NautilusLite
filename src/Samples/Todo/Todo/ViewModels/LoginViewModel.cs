@@ -7,7 +7,7 @@ using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 using Xamarin.Forms;
 
-namespace SampleApp.ViewModels
+namespace Todo.ViewModels
 {
 	public class LoginViewModel : ViewModelBase
 	{

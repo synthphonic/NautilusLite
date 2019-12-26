@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace SampleApp.Xaml.AttachedProperties
+namespace Todo.Xaml.AttachedProperties
 {
 	public static class FavoriteStyleInverter
 	{

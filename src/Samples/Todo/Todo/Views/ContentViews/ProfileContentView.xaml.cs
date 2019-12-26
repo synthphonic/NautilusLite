@@ -1,8 +1,8 @@
 ﻿using System;
-using SampleApp.ViewModels;
+using Todo.ViewModels;
 using Xamarin.Forms;
 
-namespace SampleApp.Views.ContentViews
+namespace Todo.Views.ContentViews
 {
 	public partial class ProfileContentView : ContentView
 	{

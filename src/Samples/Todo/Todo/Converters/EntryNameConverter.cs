@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace SampleApp.Converters
+namespace Todo.Converters
 {
 	public class EntryNameConverter : IValueConverter
 	{

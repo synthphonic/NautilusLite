@@ -7,7 +7,7 @@
              ios:Page.UseSafeArea="true"
              Visual="Material"
              mc:Ignorable="d"
-             x:Class="SampleApp.Views.LoginView">
+             x:Class="Todo.Views.LoginView">
     <Grid RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>

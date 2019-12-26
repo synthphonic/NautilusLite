@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SampleApp.Views.ViewParameters
+namespace Todo.Views.ViewParameters
 {
 	public class TodoItemParameter
 	{
