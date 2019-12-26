@@ -59,7 +59,7 @@
                 </StackLayout>
 
                 <StackLayout Margin="0,50,0,0">
-                    <Button Text="Save" BackgroundColor="{StaticResource OrangeColor}"/>
+                    <Button Text="Save" Style="{StaticResource ButtonOrangeStyle}"/>
                 </StackLayout>
                 
             </StackLayout>
