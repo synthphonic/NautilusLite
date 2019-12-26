@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -106,6 +105,16 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 			}
 		}
 
+		public async Task GoBackAsync(bool animated = false)
+		{
+			await _navigationPage.PopAsync(animated);
+		}
+
+		public void SetRootPage(Page rootPage)
+		{
+
+		}
+
 		private Page FindAndCreate(PageMapperItem pageMapperItem, object parameter)
 		{
 			ConstructorInfo constructor;
@@ -144,11 +153,6 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 
 			var pageInstance = constructor.Invoke(parameters) as Page;
 			return pageInstance;
-		}
-
-		public void SetRootPage(Page rootPage)
-		{
-
 		}
 
 		internal void SetNavigtionPage(NavigationPage navigationPage)

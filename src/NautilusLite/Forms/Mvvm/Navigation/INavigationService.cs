@@ -24,6 +24,13 @@ namespace NautilusLite.Forms.Mvvm.Navigation
 		void SetRootPage(Page rootPage);
 
 		/// <summary>
+		/// Removes the top page from the navigation stack
+		/// </summary>
+		/// <param name="animated"></param>
+		/// <returns></returns>
+		Task GoBackAsync(bool animated = false);
+
+		/// <summary>
 		/// Navigates to a new view asynchronously
 		/// </summary>
 		/// <returns>The to async.</returns>
