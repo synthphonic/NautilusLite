@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace SampleApp.UWP
+namespace Todo.UWP
 {
     public sealed partial class MainPage
     {
@@ -22,7 +22,7 @@ namespace SampleApp.UWP
             this.InitializeComponent();
 
             InitializeLibraries();
-            LoadApplication(new SampleApp.App());
+            LoadApplication(new Todo.App());
         }
 
         private void InitializeLibraries()
