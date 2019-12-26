@@ -23,6 +23,7 @@ namespace Todo.ViewModels
 		private UserModel _user;
 		private ObservableCollection<TodoItem> _todoList;
 		private ObservableCollection<TodoItem> _favorites;
+		private ObservableCollection<TodoItem> _upcoming;
 		private ICommand _navigateToProfileCommand;
 		private ICommand _logoutCommand;
 		private ICommand _slideViewCommand;
@@ -54,6 +55,12 @@ namespace Todo.ViewModels
 
 			TodoList = new ObservableCollection<TodoItem>(TodoRepository.Instance.GetAll());
 			Favorites = new ObservableCollection<TodoItem>(TodoList.Where(x => x.IsFavorite).ToList());
+
+			var upcomingList = (from a in TodoList
+					 where a.Due >= DateTime.Now && !a.Completed
+					 select a).ToList();
+
+			Upcoming = new ObservableCollection<TodoItem>(upcomingList);
 		}
 
 		#region Binding properties		
@@ -61,6 +68,12 @@ namespace Todo.ViewModels
 		{
 			get { return _user; }
 			set { Set(ref _user, value); }
+		}
+		
+		public ObservableCollection<TodoItem> Upcoming
+		{
+			get { return _upcoming; }
+			set { Set(ref _upcoming, value); }
 		}
 
 		public ObservableCollection<TodoItem> TodoList

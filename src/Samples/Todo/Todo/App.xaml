@@ -80,17 +80,24 @@
             <Style x:Key="SubHeaderLabelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="FontSize" Value="{StaticResource SubHeaderFontSize}" />
-                <Setter Property="TextColor" Value="LightGray" />
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
             </Style>
 
             <Style x:Key="TitleLabelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
-                <Setter Property="TextColor" Value="LightGray" />
+                <Setter Property="TextColor" Value="{StaticResource OrangeColor}" />
             </Style>
 
-            <Style x:Key="ButtonOrangeStyle" TargetType="Button">
-                <Setter Property="TextColor" Value="{StaticResource AlmostBlack}" />
+            <Style x:Key="ButtonRoundedOrangeStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Margin" Value="20" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}" />
             </Style>
 
@@ -106,15 +113,35 @@
                 <Setter Property="FontSize" Value="{StaticResource TitleFontSize}" />
             </Style>
 
+            <Style x:Key="Label18OrangeStyle" TargetType="Label" BasedOn="{StaticResource LabelOrangeStyle}">
+                <Setter Property="FontSize" Value="18" />
+            </Style>
+
+            <Style x:Key="Label15OrangeStyle" TargetType="Label" BasedOn="{StaticResource LabelOrangeStyle}">
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+
             <!-- End of Base Styles -->
+
+            <!--<Frame CornerRadius="10" WidthRequest="100" HeightRequest="80" HasShadow="False" BackgroundColor="{StaticResource FrameStyle}"/>-->
+            <Style x:Key="CardStyle" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+            <Style x:Key="ParentGridContainerStyle" TargetType="Grid">
+                <Setter Property="Margin" Value="10,0,10,0"/>
+            </Style>
+
+            <Style x:Key="ButtonOrangeStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}"/>
+            </Style>
 
 			<Style x:Key="AppButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonOrangeStyle}">
 				<Setter Property="CornerRadius" Value="5" />
 				<Setter Property="BorderWidth" Value="1" />
-				<!--<Setter Property="BorderColor" Value="{StaticResource LineColor}" />-->
 				<Setter Property="FontSize" Value="20" />
 				<Setter Property="TextColor" Value="{StaticResource LineColor}" />
-				<!--<Setter Property="BackgroundColor" Value="{StaticResource Background}" />-->
 			 	<Setter Property="HeightRequest">
           			<Setter.Value>
             			<OnPlatform x:TypeArguments="x:Double">
