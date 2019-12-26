@@ -13,8 +13,11 @@ namespace Todo.Models
 			get => _name;
 			set => Set(ref _name, value);
 		}
+
 		public string Description { get; set; }
 		public string ShortDescription { get; set; }
 		public bool IsFavorite { get; set; }
+		public DateTime Due { get; set; }
+		public bool Completed { get; set; }
 	}
 }
