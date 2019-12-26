@@ -9,7 +9,6 @@
              xmlns:attachedprop="clr-namespace:Todo.Xaml.AttachedProperties"
              xmlns:contentviews="clr-namespace:Todo.Views.ContentViews"
              xmlns:converters="clr-namespace:Todo.Converters"
-             BackgroundColor="{StaticResource AlmostBlack}"
              x:Name="MainViewPage">
 
     <ContentPage.Resources>

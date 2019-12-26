@@ -9,7 +9,8 @@
              Visual="Material"
              mc:Ignorable="d"
              x:Class="Todo.Views.LoginView">
-    <Grid RowSpacing="0">
+
+    <Grid RowSpacing="0" Style="{StaticResource ParentGridContainerStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>

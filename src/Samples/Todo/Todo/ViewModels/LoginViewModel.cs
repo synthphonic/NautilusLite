@@ -44,9 +44,6 @@ namespace Todo.ViewModels
 
 		private async Task DoLogin()
 		{
-			var bgcolor = (Color)Application.Current.Resources["AlmostBlack"];
-			NavigationPageHelper.NavigationPage.BarBackgroundColor = bgcolor;
-
 			await _navigator.NavigateAndSetAsFirstPageAsync("Main", true);
 		}
 		#endregion

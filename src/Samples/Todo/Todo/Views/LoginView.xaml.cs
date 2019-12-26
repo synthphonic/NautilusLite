@@ -23,9 +23,6 @@ namespace Todo.Views
 			// ref: https://forums.xamarin.com/discussion/139713/cannot-change-navigation-page-barbackgroundcolor-programmatically
 			//
 
-			var bgcolor = (Color)Application.Current.Resources["Background"];
-			NavigationPageHelper.NavigationPage.BarBackgroundColor = bgcolor;			
-
 			base.OnAppearing();
 		}
 	}

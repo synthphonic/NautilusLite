@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             BackgroundColor="{StaticResource AlmostBlack}"
              Visual="Material"
              xmlns:vm="clr-namespace:Todo.ViewModels"
              xmlns:converters="clr-namespace:Todo.Converters"
