@@ -18,9 +18,6 @@ namespace Todo.Views
 
 		protected override void OnAppearing()
 		{
-			var bgcolor = (Color)Application.Current.Resources["Background"];
-			NavigationPageHelper.NavigationPage.BarBackgroundColor = bgcolor;
-
 			base.OnAppearing();
 		}
 	}
