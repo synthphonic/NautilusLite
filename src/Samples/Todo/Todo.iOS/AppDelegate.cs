@@ -6,7 +6,7 @@ using Foundation;
 using NautilusLite.iOS.Services;
 using UIKit;
 
-namespace SampleApp.iOS
+namespace Todo.iOS
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the 
 	// User Interface of the application, as well as listening (and optionally responding) to 
