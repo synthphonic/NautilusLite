@@ -71,7 +71,7 @@
         </Grid>
 
         <Grid Grid.Row="3" >
-            <Label Text="synthphonic labs 2019" HorizontalOptions="Center" TextColor="{StaticResource PaleWhite}"/>
+            <Label Text="fiftyone lab 2019" HorizontalOptions="Center" TextColor="{StaticResource PaleWhite}"/>
         </Grid>
     </Grid>
 </ContentPage>
