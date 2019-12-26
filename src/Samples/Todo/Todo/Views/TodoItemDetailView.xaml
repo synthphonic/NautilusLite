@@ -15,7 +15,7 @@
         <converters:EntryNameConverter x:Key="ItemNameConverter" />
     </ContentPage.Resources>
 
-    <Grid RowSpacing="0">
+    <Grid RowSpacing="0" Style="{StaticResource ParentGridContainerStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
