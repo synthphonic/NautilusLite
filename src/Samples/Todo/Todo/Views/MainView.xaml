@@ -40,15 +40,18 @@
                 <StackLayout>
                     <Label Text="My Favorites" Style="{StaticResource Label18OrangeStyle}" TextColor="DarkGray"/>
 
-                    <CollectionView ItemsSource="{Binding Favorites}">
+                    <CollectionView ItemsSource="{Binding Favorites}" ItemsUpdatingScrollMode="KeepLastItemInView">
                         <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Horizontal" Span="1"/>
+                            <GridItemsLayout Orientation="Horizontal"
+                                             Span="1"
+                                             HorizontalItemSpacing="5" />
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Frame BackgroundColor="{StaticResource AlmostBlack}"
                                        BorderColor="{StaticResource OrangeColor}"
                                        HasShadow="False"
+                                       WidthRequest="150"
                                        CornerRadius="10">
                                     <Grid>
                                         <Grid.RowDefinitions>
