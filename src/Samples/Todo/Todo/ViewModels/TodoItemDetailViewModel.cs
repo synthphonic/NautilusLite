@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -47,6 +48,12 @@ namespace Todo.ViewModels
 			}
 
 			Item = found;
+			_view.SetFavorite(Item.IsFavorite);
+		}
+
+		internal void Unload()
+		{
+			Item = null;
 		}
 
 		#region Binding properties
@@ -75,7 +82,7 @@ namespace Todo.ViewModels
 			get { return _favoriteCommand ?? (_favoriteCommand = new Command(IsFavorite)); }
 		}
 
-		private void IsFavorite(object parameter)
+		private void IsFavorite()
 		{
 			Item.IsFavorite = !Item.IsFavorite;
 			_view.SetFavorite(Item.IsFavorite);
