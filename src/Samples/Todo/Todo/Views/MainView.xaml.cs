@@ -59,7 +59,7 @@ namespace Todo.Views
 
 			AddTodoItem.IsVisible = true;
 			await AddTodoItem.TranslateTo(0, Height - AddTodoItem.Height, 300, Easing.SinInOut);
-			AddTodoItem.LoadData();
+			AddTodoItem.SetNewData();
 		}
 
 		public async Task SlideUpProfileAsync()
@@ -115,7 +115,7 @@ namespace Todo.Views
 							break;
 					}
 
-					AddTodoItem.UnLoadData();
+					AddTodoItem.ClearData();
 					AddTodoItem.IsVisible = false;
 					break;
 			}

@@ -1,58 +1,34 @@
-﻿using System.Collections.ObjectModel;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using Todo.Models;
-using Todo.Views.ViewParameters;
 
 namespace Todo.ViewModels
 {
 	public class AddTodoItemViewModel : ViewModelBase
 	{
 		private string _message;
-		private ObservableCollection<MovieItem> _movieItems;
+		private TodoItem _newtTodoItem;
 
-		internal void LoadData(ProfileViewParameter parameter)
+		internal void SetNewData()
 		{
-			if (parameter != null)
-			{
-				Message = parameter.Message;
-			}
-
-			LoadMovies();
+			_newtTodoItem = new TodoItem();
 		}
 
-		private void LoadMovies()
+		internal void ClearData()
 		{
-			var list = new ObservableCollection<MovieItem>
-			{
-				new MovieItem { MovieName = "Iron Man", Year = "2008" },
-				new MovieItem { MovieName = "Iron Man 2", Year = "2010" },
-				new MovieItem { MovieName = "Iron Man 3", Year = "2013" },
-				new MovieItem { MovieName = "Captain America - Civil War", Year = "2016" },
-				new MovieItem { MovieName = "Avengers", Year = "2012" },
-				new MovieItem { MovieName = "Avengers - Age of Ultron", Year = "2015" },
-				new MovieItem { MovieName = "Avengers - Infinity War", Year = "2018" },
-				new MovieItem { MovieName = "Avengers - EndGame", Year = "2019" }
-			};
-
-			MovieItems = list;
-		}
-
-		internal void UnLoadData()
-		{
-			MovieItems.Clear();
+			_newtTodoItem = null;
 		}
 
 		#region Binding properties
+		public TodoItem NewTodoItem
+		{
+			get => _newtTodoItem;
+			set => Set(ref _newtTodoItem, value);
+		}
+
 		public string Message
 		{
 			get { return _message; }
 			set { Set(ref _message, value); }
-		}
-
-		public ObservableCollection<MovieItem> MovieItems
-		{
-			get { return _movieItems; }
-			set { Set(ref _movieItems, value); }
 		}
 		#endregion
 	}

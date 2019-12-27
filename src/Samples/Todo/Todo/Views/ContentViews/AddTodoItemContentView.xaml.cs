@@ -1,4 +1,5 @@
-﻿using Todo.ViewModels;
+﻿using System;
+using Todo.ViewModels;
 using Xamarin.Forms;
 
 namespace Todo.Views.ContentViews
@@ -13,14 +14,14 @@ namespace Todo.Views.ContentViews
 			BindingContext = _vm = new AddTodoItemViewModel();
 		}
 
-		public void LoadData()
+		public void SetNewData()
 		{
-			_vm.LoadData(null);
+			_vm.SetNewData();
 		}
 
-		internal void UnLoadData()
+		internal void ClearData()
 		{
-			_vm.UnLoadData();
+			_vm.ClearData();
 		}
 
 		#region SlideUpHeightProperty
@@ -33,6 +34,5 @@ namespace Todo.Views.ContentViews
 			set => SetValue(SlideUpHeightProperty, value);
 		}
 		#endregion
-
 	}
 }
