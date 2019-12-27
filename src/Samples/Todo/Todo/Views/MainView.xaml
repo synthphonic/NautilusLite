@@ -9,6 +9,7 @@
              xmlns:attachedprop="clr-namespace:Todo.Xaml.AttachedProperties"
              xmlns:contentviews="clr-namespace:Todo.Views.ContentViews"
              xmlns:converters="clr-namespace:Todo.Converters"
+             xmlns:viewenums="clr-namespace:Todo.Views.Enums"
              x:Name="MainViewPage">
 
     <ContentPage.Resources>
@@ -178,17 +179,23 @@
             <Button Text="LOGOUT"
                     Style="{StaticResource ButtonRoundedOrangeStyle}"
                     Grid.Column="0"
-                    Command="{Binding SlideViewCommand}" CommandParameter="Logout" />
+                    Command="{Binding SlideViewCommand}" CommandParameter="{x:Static viewenums:MainViewButtonOperation.Logout}" />
 
-            <Button Text="FEATURES"
+            <!--<Button Text="FEATURES"
                     Style="{StaticResource ButtonRoundedOrangeStyle}"
                     Grid.Column="1"
-                    Command="{Binding SlideViewCommand}" CommandParameter="Bid" />
+                    Command="{Binding SlideViewCommand}" CommandParameter="Bid" />-->
+
+            <Button Text="+"
+                    Style="{StaticResource ButtonRoundedOrangeStyle}"
+                    FontSize="Large"
+                    Grid.Column="1"
+                    Command="{Binding SlideViewCommand}" CommandParameter="{x:Static viewenums:MainViewButtonOperation.AddTodoItem}" />
 
             <Button Text="PROFILE"
                     Style="{StaticResource ButtonRoundedOrangeStyle}"
                     Grid.Column="2"
-                    Command="{Binding SlideViewCommand}" CommandParameter="Profile" />
+                    Command="{Binding SlideViewCommand}" CommandParameter="{x:Static viewenums:MainViewButtonOperation.Profile}" />
 
             </Grid>
 
@@ -203,6 +210,10 @@
                 <TapGestureRecognizer Command="{Binding PageFaderTapCommand}" />
             </BoxView.GestureRecognizers>
         </BoxView>
+
+        <contentviews:AddTodoItemContentView x:Name="AddTodoItem"
+                                  Grid.Row="0" Grid.RowSpan="1"                                  
+                                  TranslationY="{Binding Source={x:Reference MainViewPage}, Path=Height}"/>
 
         <contentviews:ProfileContentView x:Name="Profile"
                                   Grid.Row="0" Grid.RowSpan="1"                                  

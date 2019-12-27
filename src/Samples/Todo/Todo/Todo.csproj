@@ -25,6 +25,7 @@
     <Folder Include="Converters\" />
     <Folder Include="Xaml\" />
     <Folder Include="Xaml\AttachedProperties\" />
+    <Folder Include="Views\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\NautilusLite\NautilusLite.csproj" />

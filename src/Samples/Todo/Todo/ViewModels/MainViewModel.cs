@@ -165,20 +165,23 @@ namespace Todo.ViewModels
 		#region MakeABidCommand
 		public ICommand SlideViewCommand
 		{
-			get { return _slideViewCommand ?? (_slideViewCommand = new AsyncCommand<string>(DoSlideView)); }
+			get { return _slideViewCommand ?? (_slideViewCommand = new AsyncCommand<Views.Enums.MainViewButtonOperation>(DoSlideView)); }
 		}
 
-		private async Task DoSlideView(string parameter)
+		private async Task DoSlideView(Views.Enums.MainViewButtonOperation parameter)
 		{
 			switch(parameter)
 			{
-				case "Profile":
+				case Views.Enums.MainViewButtonOperation.Profile:
 					await _view.SlideUpProfileAsync();
 					break;
-				case "Bid":
-					await _view.SlideUpAsync();	 
+				case Views.Enums.MainViewButtonOperation.AddTodoItem:
+					await _view.SlideUpAddTodoItemAsync();
 					break;
-				case "Logout":
+				//case "Bid":
+				//	await _view.SlideUpAsync();	 
+				//	break;
+				case Views.Enums.MainViewButtonOperation.Logout:
 					PopupDialog.ShowConfirm("Logout", "Confirm logout?", "Yes", "No", async (confirm) =>
 						   {
 							   if (confirm)

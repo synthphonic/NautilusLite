@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Todo.ViewModels;
-using NautilusLite.Forms;
 using NautilusLite.Infrastructure;
+using Todo.Views.Enums;
 
 namespace Todo.Views
 {
@@ -17,7 +13,7 @@ namespace Todo.Views
 	public partial class MainView : ContentPage, IMainView
 	{
 		private MainViewModel _vm;
-		private SlideViewType _slideViewType = SlideViewType.None;
+		private MainViewButtonOperation _slideViewType = MainViewButtonOperation.None;
 
 		public MainView()
 		{
@@ -36,15 +32,34 @@ namespace Todo.Views
 			_vm.Load();
 		}
 
+		#region IMainView implementation
 		public async Task SlideUpAsync()
 		{
-			_slideViewType = SlideViewType.Bid;
+			_slideViewType = MainViewButtonOperation.Bid;
 
 			PageFader.IsVisible = true;
 			PageFader.Opacity = 0.5;
 
 			BidPopup.IsVisible = true;
 			await BidPopup.TranslateTo(0, Height - Profile.Height, 300, Easing.SinInOut);
+		}
+
+		public async Task SlideUpAddTodoItemAsync()
+		{
+			DebugOutput.Write(GetType(), $"Page Height={Height}");
+			DebugOutput.Write(GetType(), $"Profile Height={AddTodoItem.Height}");
+
+			AddTodoItem.HeightRequest = Height;
+			DebugOutput.Write(GetType(), $"Profile Height={AddTodoItem.Height}");
+
+			_slideViewType = MainViewButtonOperation.AddTodoItem;
+
+			PageFader.IsVisible = true;
+			PageFader.Opacity = 0.5;
+
+			AddTodoItem.IsVisible = true;
+			await AddTodoItem.TranslateTo(0, Height - AddTodoItem.Height, 300, Easing.SinInOut);
+			AddTodoItem.LoadData();
 		}
 
 		public async Task SlideUpProfileAsync()
@@ -55,7 +70,7 @@ namespace Todo.Views
 			Profile.HeightRequest = Height;
 			DebugOutput.Write(GetType(), $"Profile Height={Profile.Height}");
 
-			_slideViewType = SlideViewType.Profile;
+			_slideViewType = MainViewButtonOperation.Profile;
 
 			PageFader.IsVisible = true;
 			PageFader.Opacity = 0.5;
@@ -67,15 +82,14 @@ namespace Todo.Views
 
 		public async Task PageFaderTappedAsync()
 		{
-			switch(_slideViewType)
+			switch (_slideViewType)
 			{
-				case SlideViewType.Bid:
+				case MainViewButtonOperation.Bid:
 					await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
 					BidPopup.IsVisible = false;
 					break;
 
-				case SlideViewType.Profile:
-
+				case MainViewButtonOperation.Profile:
 					switch (Device.RuntimePlatform)
 					{
 						case Device.iOS:
@@ -85,28 +99,38 @@ namespace Todo.Views
 							await Profile.TranslateTo(0, Height, 300, Easing.SinInOut);
 							break;
 					}
-					
+
 					Profile.UnLoadData();
 					Profile.IsVisible = false;
+					break;
+
+				case MainViewButtonOperation.AddTodoItem:
+					switch (Device.RuntimePlatform)
+					{
+						case Device.iOS:
+							await AddTodoItem.TranslateTo(0, Height, 300, Easing.SinInOut);
+							break;
+						case Device.Android:
+							await AddTodoItem.TranslateTo(0, Height, 300, Easing.SinInOut);
+							break;
+					}
+
+					AddTodoItem.UnLoadData();
+					AddTodoItem.IsVisible = false;
 					break;
 			}
 
 			PageFader.Opacity = 0;
 			PageFader.IsVisible = false;
 		}
+		#endregion
 	}
 
 	public interface IMainView
 	{
 		Task SlideUpAsync();
-		Task PageFaderTappedAsync();
 		Task SlideUpProfileAsync();
-	}
-
-	public enum SlideViewType
-	{
-		Bid,
-		Profile,
-		None,
+		Task SlideUpAddTodoItemAsync();
+		Task PageFaderTappedAsync();		
 	}
 }
