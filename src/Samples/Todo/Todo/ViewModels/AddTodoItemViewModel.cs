@@ -5,7 +5,7 @@ using Todo.Views.ViewParameters;
 
 namespace Todo.ViewModels
 {
-	public class ProfileViewModel : ViewModelBase
+	public class AddTodoItemViewModel : ViewModelBase
 	{
 		private string _message;
 		private ObservableCollection<MovieItem> _movieItems;
