@@ -12,12 +12,11 @@ namespace Todo.Views
 		public ForgotPasswordView()
 		{
 			InitializeComponent();
-
 			BindingContext = _vm = new ForgotPasswordViewModel();
 		}
 
 		protected override void OnAppearing()
-		{
+		{			
 			base.OnAppearing();
 		}
 	}

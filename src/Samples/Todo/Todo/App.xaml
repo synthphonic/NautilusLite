@@ -69,6 +69,7 @@
             <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource AlmostBlack}"/>
                 <Setter Property="BackgroundColor" Value="{StaticResource AlmostBlack}"/>
+                <Setter Property="BarTextColor" Value="{StaticResource OrangeColor}"/>
             </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
