@@ -1,17 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:circle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:converters="clr-namespace:Todo.Converters"
              xmlns:attachprop="clr-namespace:Todo.Xaml.AttachedProperties"
-             BackgroundColor="{StaticResource DarkGray}"
+             xmlns:models="clr-namespace:Todo.Models"
+             xmlns:vm="clr-namespace:Todo.ViewModels.ContentViewModels"
+             BackgroundColor="{StaticResource DarkGray}"             
              Visual="Material"
-             x:Class="Todo.Views.ContentViews.AddTodoItemContentView">
+             
+             x:Class="Todo.Views.ContentViews.AddTodoItemContentView"
+             x:Name="AddTodoItemCv">
+
+    <!--x:DataType="vm:AddTodoItemViewModel"-->
 
     <ContentView.Resources>
         <converters:EntryNameConverter x:Key="entryNameConverter" />
     </ContentView.Resources>
 
+    <!--x:DataType="models:TodoItem"-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -36,18 +42,9 @@
                    Style="{StaticResource Label18OrangeStyle}"/>
         </Frame>
 
-        <!--<circle:CircleImage Grid.Row="0"
-                            Grid.RowSpan="2"
-                            BorderThickness="2"
-                            BorderColor="{StaticResource OrangeColor}"
-                            Source="tony_stark.jpg"
-                            HeightRequest="100"
-                            WidthRequest="100"
-                            VerticalOptions="Start"
-                            HorizontalOptions="Center"/>-->
-
         <Grid Grid.Row="2">
-            <StackLayout  Margin="20,0,20,0" >
+            <StackLayout Margin="20,0,20,0">
+
                 <Label Text="{Binding Source={x:Reference TodoItemEntryName}, Path=Text, Converter={StaticResource entryNameConverter}}"
                        HeightRequest="50"
                        Grid.Row="0"
@@ -56,9 +53,10 @@
                        FontAttributes="Bold"
                        TextColor="White"/>
 
-                <Entry x:Name="TodoItemEntryName" Placeholder="Name" Text="{Binding Item.Name}" TextColor="White" PlaceholderColor="LightGray"/>
-                <Entry Placeholder="Description" Text="{Binding Item.Description}" TextColor="White" PlaceholderColor="LightGray"/>
-                <Entry Placeholder="Short Description" Text="{Binding Item.ShortDescription}" TextColor="White" PlaceholderColor="LightGray"/>
+                <Entry x:Name="TodoItemEntryName" Placeholder="Name" Text="{Binding Name}" TextColor="White" PlaceholderColor="LightGray"/>
+                <Entry Placeholder="Description" Text="{Binding Description}" TextColor="White" PlaceholderColor="LightGray"/>
+                <Entry Placeholder="Short Description" Text="{Binding ShortDescription}" TextColor="White" PlaceholderColor="LightGray"/>
+
                 <StackLayout Orientation="Horizontal" Margin="15,10,0,0">
                     <Label x:Name="LikeLabel"
                            HorizontalOptions="End"
@@ -66,18 +64,21 @@
                            TextColor="Red"
                            FontSize="Large"
                            HorizontalTextAlignment="Start"
-                           attachprop:FavoriteStyleInverter.IsFavorite="{Binding Item.IsFavorite}">
+                           attachprop:FavoriteStyleInverter.IsFavorite="{Binding IsFavorite}">
                         <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>
+                            <TapGestureRecognizer Command="{Binding BindingContext.SetFavoriteCommand, Source={x:Reference AddTodoItemCv}}"/>
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
 
                 <StackLayout Margin="0,50,0,0">
-                    <Button Text="Save" Style="{StaticResource ButtonOrangeStyle}"/>
+                    <Button Text="Save"
+                            Style="{StaticResource ButtonOrangeStyle}"
+                            Command="{Binding BindingContext.SaveNewTodoItemCommand, Source={x:Reference AddTodoItemCv}}"/>
                 </StackLayout>
                 
             </StackLayout>
         </Grid>        
     </Grid>
+
 </ContentView>

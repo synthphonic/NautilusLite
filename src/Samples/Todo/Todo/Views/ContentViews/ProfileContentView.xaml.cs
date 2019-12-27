@@ -1,5 +1,4 @@
-﻿using System;
-using Todo.ViewModels;
+﻿using Todo.ViewModels.ContentViewModels;
 using Xamarin.Forms;
 
 namespace Todo.Views.ContentViews

@@ -38,5 +38,10 @@ namespace Todo.Database
 		{
 			return _list;
 		}
+
+		internal void Save(TodoItem newTodoItem)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

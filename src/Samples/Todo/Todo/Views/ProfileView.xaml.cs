@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 using Xamarin.Forms;
-using Todo.ViewModels;
 using Todo.Views.ViewParameters;
+using Todo.ViewModels.ContentViewModels;
 
 namespace Todo.Views
 {

@@ -3,7 +3,7 @@ using GalaSoft.MvvmLight;
 using Todo.Models;
 using Todo.Views.ViewParameters;
 
-namespace Todo.ViewModels
+namespace Todo.ViewModels.ContentViewModels
 {
 	public class ProfileViewModel : ViewModelBase
 	{

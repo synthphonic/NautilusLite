@@ -29,7 +29,21 @@ namespace Todo.Views
 		{
 			base.OnAppearing();
 
+			MessagingCenter.Subscribe<string>(this, "SlideDownView", param => SlideDownAsync(string.Empty));
+
 			_vm.Load();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
+
+			MessagingCenter.Unsubscribe<string>(this, "SlideDownView");
+		}
+
+		private void SlideDownAsync(string parameter)
+		{
+			Task.Run(async () => await PageFaderTappedAsync()).ConfigureAwait(false);
 		}
 
 		#region IMainView implementation
