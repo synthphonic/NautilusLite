@@ -11,7 +11,7 @@ namespace Todo.Converters
 			var stringValue = value as string;
 			if (string.IsNullOrWhiteSpace(stringValue))
 			{
-				return "<Todo item name needed>";
+				return string.Empty;
 			}
 
 			return stringValue;
