@@ -11,9 +11,10 @@ namespace Todo.Xaml.AttachedProperties
 				typeof(bool),
 				typeof(FavoriteStyleInverter),
 				false,
-				propertyChanged: OnAttachedPropertyChanged
+				defaultBindingMode: BindingMode.TwoWay,
+				propertyChanged: OnAttachedPropertyChanged,
+				propertyChanging: OnAttachedPropertyChanging
 			);
-
 
 		public static bool GetIsFavorite(BindableObject bindable)
 		{
@@ -27,6 +28,11 @@ namespace Todo.Xaml.AttachedProperties
 				return;
 
 			view.SetValue(IsFavoriteProperty, value);
+		}
+
+		private static void OnAttachedPropertyChanging(BindableObject bindable, object oldValue, object newValue)
+		{
+			// empty implementation for now
 		}
 
 		private static void OnAttachedPropertyChanged(BindableObject bindable, object oldValue, object newValue)
