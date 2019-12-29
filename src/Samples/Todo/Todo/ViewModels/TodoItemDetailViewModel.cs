@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -80,7 +81,18 @@ namespace Todo.ViewModels
 
 		private async Task DoSaveAsync()
 		{
-			await _navigator.NavigateToAsync("Main", true);
+			var foundTodo = TodoRepository.Instance.Get(Item.Id);
+			foundTodo.Completed = Item.Completed;
+			foundTodo.Description = Item.Description;
+			foundTodo.Due = Item.Due;
+			foundTodo.IsFavorite = Item.IsFavorite;
+			foundTodo.Name = Item.Name;
+			foundTodo.ShortDescription = Item.ShortDescription;
+
+			var orangeColor = (Color)Application.Current.Resources["OrangeColor"];
+			PopupDialog.ShowToast("You todo item updated", Color.Blue, orangeColor, TimeSpan.FromSeconds(3));
+
+			await _navigator.GoBackAsync(true);
 		}
 		#endregion
 

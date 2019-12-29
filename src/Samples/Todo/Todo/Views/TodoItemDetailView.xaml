@@ -8,6 +8,7 @@
              xmlns:converters="clr-namespace:Todo.Converters"
              xmlns:attachprop="clr-namespace:Todo.Xaml.AttachedProperties"
              x:DataType="vm:TodoItemDetailViewModel"
+             BackgroundColor="{StaticResource AlmostBlack}"
              x:Class="Todo.Views.TodoItemDetailView">
 
     <ContentPage.Resources>
@@ -27,31 +28,43 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Margin="0,10,0,0" HeightRequest="50" Grid.Row="0" Text="ITEM" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="White"/>
+            <Label Margin="0,10,0,0" HeightRequest="50" Grid.Row="0" Text="Todo Item" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold" TextColor="{StaticResource OrangeColor}"/>
         </Grid>
 
         <Grid Grid.Row="1">
-            <StackLayout  Margin="20,0,20,0" >
+            <StackLayout  Margin="20,0,20,0" Spacing="10">
                 <Label Text="{Binding Source={x:Reference TodoItemEntryName}, Path=Text, Converter={StaticResource entryNameConverter}}"
-                       HeightRequest="50"
-                       Grid.Row="0"
-                       HorizontalOptions="Center"
-                       FontSize="Large"
-                       FontAttributes="Bold"
-                       TextColor="White"/>
+                           HeightRequest="50"
+                           Grid.Row="0"
+                           HorizontalOptions="Center"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
 
                 <Entry x:Name="TodoItemEntryName" Placeholder="Name" Text="{Binding Item.Name}" TextColor="White" PlaceholderColor="LightGray"/>
                 <Entry Placeholder="Description" Text="{Binding Item.Description}" TextColor="White" PlaceholderColor="LightGray"/>
                 <Entry Placeholder="Short Description" Text="{Binding Item.ShortDescription}" TextColor="White" PlaceholderColor="LightGray"/>
-                <StackLayout Orientation="Horizontal" Margin="15,10,0,0">
+                <Entry Placeholder="Date Due" Text="{Binding Item.Due}" TextColor="White" PlaceholderColor="LightGray"/>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="10,10,0,0">
+                    <Label Text="Completed? "
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="White"/>
+                    <CheckBox IsChecked="{Binding Item.Completed}"
+                              Color="{StaticResource OrangeColor}"
+                              VerticalOptions="Start"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Margin="15,8,0,0">
                     <Label x:Name="LikeLabel"
-                           HorizontalOptions="End"
-                           Text="&#xf004;"
-                           TextColor="Red"
-                           FontSize="Large"
-                           HorizontalTextAlignment="Start"
-                           IsVisible="{Binding IsFavoriteVisible}"
-                           attachprop:FavoriteStyleInverter.IsFavorite="{Binding Item.IsFavorite}">
+                               HorizontalOptions="End"
+                               Text="&#xf004;"
+                               TextColor="Red"
+                               FontSize="Large"
+                               HorizontalTextAlignment="Start"
+                               IsVisible="{Binding IsFavoriteVisible}"
+                               attachprop:FavoriteStyleInverter.IsFavorite="{Binding Item.IsFavorite}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>
                         </Label.GestureRecognizers>
@@ -59,9 +72,11 @@
                 </StackLayout>
 
                 <StackLayout Margin="0,50,0,0">
-                    <Button Text="Save" Style="{StaticResource ButtonOrangeStyle}"/>
+                    <Button Text="Save"
+                            Command="{Binding SaveItemCommand}"
+                            Style="{StaticResource ButtonOrangeStyle}"/>
                 </StackLayout>
-                
+
             </StackLayout>
         </Grid>
     </Grid>

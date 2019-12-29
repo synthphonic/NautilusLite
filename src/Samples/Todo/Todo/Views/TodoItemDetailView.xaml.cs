@@ -26,14 +26,14 @@ namespace Todo.Views
 		{
 			base.OnAppearing();
 
-			_vm.Load();
+			_vm?.Load();
 		}
 
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
 
-			_vm.Unload();
+			_vm?.Unload();
 			BindingContext = _vm = null;
 		}
 
