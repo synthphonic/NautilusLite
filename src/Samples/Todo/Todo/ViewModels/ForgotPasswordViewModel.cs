@@ -34,7 +34,6 @@ namespace Todo.ViewModels
 
 			PopupDialog.ShowToast("Check your email for instructions to change your password",
 				Color.Blue, orangeColor, TimeSpan.FromSeconds(3));
-
 		}
 		#endregion
 	}
