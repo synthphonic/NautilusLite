@@ -15,7 +15,14 @@ namespace Todo.Models
 
 		public TodoItem()
 		{
+			_id = Guid.NewGuid();
 			_isFavorite = false;
+			_due = DateTime.Now;
+		}
+
+		public TodoItem(Guid id) : this()
+		{
+			_id = id;
 		}
 
 		public Guid Id
