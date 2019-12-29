@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
@@ -17,11 +16,12 @@ namespace Todo.ViewModels
 	public class TodoItemDetailViewModel : ViewModelBase
 	{
 		private readonly INavigationService _navigator;
+		private ICommand _saveItemCommand;
+		private ICommand _favoriteCommand;
 		private ITodoItemDetailView _view;
 		private TodoItemParameter _parameter;
 		private TodoItem _todoItem;
-		private ICommand _saveItemCommand;
-		private ICommand _favoriteCommand;
+		private bool _isFavoriteVisible;
 
 		public TodoItemDetailViewModel()
 		{
@@ -31,6 +31,7 @@ namespace Todo.ViewModels
 		internal void SetView(ITodoItemDetailView view)
 		{
 			_view = view;
+			IsFavoriteVisible = false;
 		}
 
 		internal void SetViewParameter(TodoItemParameter parameter)
@@ -48,6 +49,7 @@ namespace Todo.ViewModels
 			}
 
 			Item = found;
+			IsFavoriteVisible = true;
 			_view.SetFavorite(Item.IsFavorite);
 		}
 
@@ -57,6 +59,12 @@ namespace Todo.ViewModels
 		}
 
 		#region Binding properties
+		public bool IsFavoriteVisible
+		{
+			get => _isFavoriteVisible;
+			set => Set(ref _isFavoriteVisible, value);
+		}
+
 		public TodoItem Item
 		{
 			get { return _todoItem; }

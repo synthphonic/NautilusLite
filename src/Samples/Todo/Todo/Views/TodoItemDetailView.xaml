@@ -50,6 +50,7 @@
                            TextColor="Red"
                            FontSize="Large"
                            HorizontalTextAlignment="Start"
+                           IsVisible="{Binding IsFavoriteVisible}"
                            attachprop:FavoriteStyleInverter.IsFavorite="{Binding Item.IsFavorite}">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding FavoriteCommand}"/>

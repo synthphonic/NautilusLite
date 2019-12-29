@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Todo.ViewModels;
+﻿using Todo.ViewModels;
 using Todo.Views.ViewParameters;
 using Xamarin.Forms;
 
@@ -26,6 +25,7 @@ namespace Todo.Views
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
+
 			_vm.Load();
 		}
 
