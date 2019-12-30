@@ -101,7 +101,6 @@ namespace Todo.Views
 				case MainViewButtonOperation.Bid:
 					await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
 					BidPopup.IsVisible = false;
-
 					break;
 
 				case MainViewButtonOperation.Profile:
@@ -120,7 +119,6 @@ namespace Todo.Views
 						Profile.UnLoadData();
 						Profile.IsVisible = false;
 					});
-
 					break;
 
 				case MainViewButtonOperation.AddTodoItem:
@@ -140,7 +138,6 @@ namespace Todo.Views
 						AddTodoItem.ClearData();
 						AddTodoItem.IsVisible = false;
 					});
-
 					break;
 			}
 
@@ -150,6 +147,13 @@ namespace Todo.Views
 				PageFader.IsVisible = false;
 			});
 		}
+
+		public void LoadTabContent(TabContentType tabContentType)
+		{
+			TabContent.Content = null;
+
+			TabContent.Content = new ContentViews.TodoListContentView(tabContentType);
+		}
 		#endregion
 	}
 
@@ -158,6 +162,7 @@ namespace Todo.Views
 		Task SlideUpAsync();
 		Task SlideUpProfileAsync();
 		Task SlideUpAddTodoItemAsync();
-		Task PageFaderTappedAsync();		
+		Task PageFaderTappedAsync();
+		void LoadTabContent(TabContentType tabContentType);
 	}
 }

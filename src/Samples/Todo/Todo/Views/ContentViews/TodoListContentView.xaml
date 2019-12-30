@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:attachedprop="clr-namespace:Todo.Xaml.AttachedProperties"
+             xmlns:converters="clr-namespace:Todo.Converters"
+             x:Class="Todo.Views.ContentViews.TodoListContentView"
+             x:Name="TodoListContentViewName">
+
+    <ContentView.Resources>
+        <converters:DateOnlyConverter x:Key="dateOnlyConvert"/>
+    </ContentView.Resources>
+
+    <Grid Grid.Row="2" Margin="0,5,0,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <CollectionView Grid.Row="1" ItemsSource="{Binding TodoList}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+
+                            <Frame Style="{StaticResource CardStyle}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <StackLayout Grid.Row="0">
+                                        <Label Style="{StaticResource TitleLabelStyle}"
+                                                FontAttributes="Bold"
+                                                HorizontalOptions="Start"
+                                                Text="{Binding Name}"
+                                                LineBreakMode="TailTruncation"/>
+                                                
+                                        <Label Style="{StaticResource Label18OrangeStyle}"
+                                                TextColor="DarkGray"
+                                                Text="{Binding Description}"
+                                                LineBreakMode="TailTruncation"/>
+                                    </StackLayout>
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+										</Grid.ColumnDefinitions>
+                                        <Label Style="{StaticResource Label15OrangeStyle}" TextColor="DarkGray">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Due: "/>
+                                                    <Span Text="{Binding Due,Converter={StaticResource dateOnlyConvert}}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Column="1"
+                                                HorizontalTextAlignment="End"
+                                                HorizontalOptions="End"
+                                                Text="&#xf004;"
+                                                TextColor="Red"
+                                                Style="{DynamicResource IconStyle}"
+                                                attachedprop:FavoriteStyleInverter.IsFavorite="{Binding IsFavorite}" />
+                                    </Grid>
+
+                                    <Grid.GestureRecognizers>
+	                                    <TapGestureRecognizer Command="{Binding BindingContext.NavigateToDetailToDoItemCommand, Source={x:Reference TodoListContentViewName}}"
+	                                            				CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Frame>
+
+                            <BoxView Grid.Row="1" HeightRequest="1" Color="DarkGray"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentView>

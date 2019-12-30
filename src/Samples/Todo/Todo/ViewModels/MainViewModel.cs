@@ -11,7 +11,9 @@ using NautilusLite.Forms.Mvvm.Navigation;
 using Todo.Database;
 using Todo.Models;
 using Todo.Views;
+using Todo.Views.Enums;
 using Todo.Views.ViewParameters;
+using Xamarin.Forms;
 
 namespace Todo.ViewModels
 {
@@ -29,6 +31,7 @@ namespace Todo.ViewModels
 		private ICommand _slideViewCommand;
 		private ICommand _pageFaderTapCommand;
 		private ICommand _navigateToDetailToDoItemCommand;
+		private ICommand _tabBarItemTappedCommand;
 		private IMainView _view;
 
 		public MainViewModel()
@@ -192,6 +195,18 @@ namespace Todo.ViewModels
 					
 					break;
 			}			
+		}
+		#endregion
+
+		#region TabBarItemTappedCommand
+		public ICommand TabBarItemTappedCommand
+		{
+			get => _tabBarItemTappedCommand ?? (_tabBarItemTappedCommand = new Command<TabContentType>(DoNavigateTabbar));
+		}
+
+		private void DoNavigateTabbar(TabContentType parameter)
+		{
+			_view.LoadTabContent(parameter);
 		}
 		#endregion
 	}

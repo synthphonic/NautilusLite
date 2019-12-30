@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Ioc;
+using NautilusLite.Forms.Input;
+using NautilusLite.Forms.Mvvm.Navigation;
+using Todo.Database;
+using Todo.Models;
+using Todo.Views.Enums;
+using Todo.Views.ViewParameters;
+
+namespace Todo.ViewModels.ContentViewModels
+{
+	public class TodoListContentViewModel : ViewModelBase
+	{
+		private readonly INavigationService _navigator;
+		private ObservableCollection<TodoItem> _todoList;
+		private TabContentType _tabContentType;
+		private ICommand _navigateToDetailToDoItemCommand;
+
+		public TodoListContentViewModel(TabContentType tabContentType)
+		{
+			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
+
+			_tabContentType = tabContentType;
+		}
+
+		internal void Load()
+		{
+			switch (_tabContentType)
+			{
+				case TabContentType.UpComing:
+					ListUpComingItems();
+					break;
+				case TabContentType.DueToday:
+					ListDueTodayItems();
+					break;
+				case TabContentType.Completed:
+					ListCompletedItems();
+					break;
+			}
+		}
+
+		private void ListDueTodayItems()
+		{
+			var allTodos = TodoRepository.Instance.GetAll();
+
+			var upcomingList = (from a in allTodos
+								where a.Due == DateTime.Today && !a.Completed
+								select a).ToList();
+
+			TodoList = new ObservableCollection<TodoItem>(upcomingList);
+		}
+
+		private void ListCompletedItems()
+		{
+			var allTodos = TodoRepository.Instance.GetAll();
+
+			var todoList = (from a in allTodos
+							where a.Completed
+							select a).ToList();
+
+			TodoList = new ObservableCollection<TodoItem>(todoList);
+		}
+
+		private void ListUpComingItems()
+		{
+			var allTodos = TodoRepository.Instance.GetAll();
+
+			var upcomingList = (from a in allTodos
+								where a.Due >= DateTime.Now && !a.Completed
+								select a).ToList();
+
+			TodoList = new ObservableCollection<TodoItem>(upcomingList);
+		}
+
+		#region Binding properties
+		public ObservableCollection<TodoItem> TodoList
+		{
+			get { return _todoList; }
+			set { Set(ref _todoList, value); }
+		}
+		#endregion
+
+		#region NavigateToDetailToDoItemCommand
+		public ICommand NavigateToDetailToDoItemCommand
+		{
+			get => _navigateToDetailToDoItemCommand ?? (_navigateToDetailToDoItemCommand = new AsyncCommand<TodoItem>(NavigateToDetailItemAsync));
+		}
+
+		private async Task NavigateToDetailItemAsync(TodoItem todo)
+		{
+			var parameter = new TodoItemParameter
+			{
+				Id = todo.Id
+			};
+
+			await _navigator.NavigateToAsync("TodoItemDetail", parameter, true);
+		}
+		#endregion
+	}
+}
