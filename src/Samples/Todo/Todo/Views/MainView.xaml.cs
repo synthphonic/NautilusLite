@@ -101,6 +101,7 @@ namespace Todo.Views
 				case MainViewButtonOperation.Bid:
 					await BidPopup.TranslateTo(0, Height, 300, Easing.SinInOut);
 					BidPopup.IsVisible = false;
+
 					break;
 
 				case MainViewButtonOperation.Profile:
@@ -114,8 +115,12 @@ namespace Todo.Views
 							break;
 					}
 
-					Profile.UnLoadData();
-					Profile.IsVisible = false;
+					Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+					{
+						Profile.UnLoadData();
+						Profile.IsVisible = false;
+					});
+
 					break;
 
 				case MainViewButtonOperation.AddTodoItem:
@@ -129,13 +134,21 @@ namespace Todo.Views
 							break;
 					}
 
-					AddTodoItem.ClearData();
-					AddTodoItem.IsVisible = false;
+					Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+					{
+
+						AddTodoItem.ClearData();
+						AddTodoItem.IsVisible = false;
+					});
+
 					break;
 			}
 
-			PageFader.Opacity = 0;
-			PageFader.IsVisible = false;
+			Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+			{
+				PageFader.Opacity = 0;
+				PageFader.IsVisible = false;
+			});
 		}
 		#endregion
 	}
