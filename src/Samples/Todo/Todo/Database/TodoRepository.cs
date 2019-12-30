@@ -41,7 +41,7 @@ namespace Todo.Database
 
 		internal void Save(TodoItem newTodoItem)
 		{
-			throw new NotImplementedException();
+			_list.Add(newTodoItem);
 		}
 	}
 }
