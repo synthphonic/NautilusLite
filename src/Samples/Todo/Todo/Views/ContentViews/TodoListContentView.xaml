@@ -73,7 +73,7 @@
 
                                     <Grid.GestureRecognizers>
 	                                    <TapGestureRecognizer Command="{Binding BindingContext.NavigateToDetailToDoItemCommand, Source={x:Reference TodoListContentViewName}}"
-	                                            				CommandParameter="{Binding .}" />
+                                                              CommandParameter="{Binding .}" />
                                     </Grid.GestureRecognizers>
                                 </Grid>
                             </Frame>
