@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using Todo.ViewModels;
 using NautilusLite.Infrastructure;
+using Todo.ViewModels;
 using Todo.Views.Enums;
+using Xamarin.Forms;
 
 namespace Todo.Views
 {
