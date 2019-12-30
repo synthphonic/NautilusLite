@@ -6,18 +6,14 @@
              xmlns:models="clr-namespace:Todo.Models"
              xmlns:vm="clr-namespace:Todo.ViewModels.ContentViewModels"
              BackgroundColor="{StaticResource DarkGray}"             
-             Visual="Material"
-             
+             Visual="Material"             
              x:Class="Todo.Views.ContentViews.AddTodoItemContentView"
              x:Name="AddTodoItemCv">
-
-    <!--x:DataType="vm:AddTodoItemViewModel"-->
 
     <ContentView.Resources>
         <converters:EntryNameConverter x:Key="entryNameConverter" />
     </ContentView.Resources>
 
-    <!--x:DataType="models:TodoItem"-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -29,15 +25,15 @@
 
         <Frame Grid.Row="0" Grid.RowSpan="2"
                BackgroundColor="{StaticResource AlmostBlack}"
-               Margin="0,20,0,50"
+               Margin="0,20,0,0"
                Style="{StaticResource CardStyle}"
                BorderColor="{StaticResource OrangeColor}"
                HeightRequest="20"
-               WidthRequest="100"
+               WidthRequest="150"
                HorizontalOptions="Center"
                VerticalOptions="Start">
 
-            <Label Text="Add Todo"
+            <Label Text="New Todo Item"
                    HorizontalOptions="Center"
                    Style="{StaticResource Label18OrangeStyle}"/>
         </Frame>
@@ -56,6 +52,17 @@
                 <Entry x:Name="TodoItemEntryName" Placeholder="Name" Text="{Binding Name}" TextColor="White" PlaceholderColor="LightGray"/>
                 <Entry Placeholder="Description" Text="{Binding Description}" TextColor="White" PlaceholderColor="LightGray"/>
                 <Entry Placeholder="Short Description" Text="{Binding ShortDescription}" TextColor="White" PlaceholderColor="LightGray"/>
+                <Entry Placeholder="Date Due" Text="{Binding Item.Due}" TextColor="White" PlaceholderColor="LightGray"/>
+
+                <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="10,10,0,0">
+                    <Label Text="Completed? "
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="White"/>
+                    <CheckBox IsChecked="{Binding Item.Completed}"
+                              Color="{StaticResource OrangeColor}"
+                              VerticalOptions="Start"/>
+                </StackLayout>
 
                 <StackLayout Orientation="Horizontal" Margin="15,10,0,0">
                     <Label x:Name="LikeLabel"
