@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using NautilusLite.Forms.Dialog;
 using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 using NautilusLite.Infrastructure;
@@ -120,9 +121,8 @@ namespace Todo.ViewModels.ContentViewModels
 			await Task.Delay(1);
 
 			MessagingCenter.Send<string>("SlideDownView", "SlideDownView");
-			//MessagingCenter.Subscribe<string>(this, "SlideDownView", param => SlideDownAsync(string.Empty));
 
-			//PopupDialog.ShowToast("New todo item saved", Color.Blue, Color.White, TimeSpan.FromSeconds(3));
+			PopupDialog.ShowToast("Todo item saved", Color.Blue, Color.White, TimeSpan.FromSeconds(1));
 		}
 		#endregion
 
