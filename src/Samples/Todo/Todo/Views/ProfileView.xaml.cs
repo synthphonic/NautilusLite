@@ -24,8 +24,6 @@ namespace Todo.Views
 
 		protected override void OnAppearing()
 		{
-			_vm.LoadData(_parameter);
-
 			base.OnAppearing();
 		}
 	}
