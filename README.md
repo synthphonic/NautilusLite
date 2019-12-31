@@ -1,10 +1,13 @@
 
+
 # Nautilus Lite
 A simple and strip down version of Nautilus Mobile SDK for Xamarin Forms.
 Samples here are written using whatever the Xamarin Forms world has. 
 
 ## Todo Sample App
-Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobile/tree/master/src/Samples/Todo)
+To get started with this sample, I had some help from a sample that was built by [Kym Phillpotts](https://kymphillpotts.com/author/kphillpotts/), an expert in crafting awesome Xamarin Forms UI. The sample app he crafted can be found here [Xamarin.Forms UI Challenges - Art Auction](https://kymphillpotts.com/xamarin-forms-ui-challenge-artauction.html)
+
+Todo sample App - Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobile/tree/master/src/Samples/Todo)
 
 
 ### Using the following technologies/code
