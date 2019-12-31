@@ -9,6 +9,7 @@ using NautilusLite.Forms.Input;
 using NautilusLite.Forms.Mvvm.Navigation;
 using Todo.Database;
 using Todo.Models;
+using Todo.Views.ContentViews;
 using Todo.Views.Enums;
 using Todo.Views.ViewParameters;
 
@@ -17,9 +18,10 @@ namespace Todo.ViewModels.ContentViewModels
 	public class TodoListContentViewModel : ViewModelBase
 	{
 		private readonly INavigationService _navigator;
-		private ObservableCollection<TodoItem> _todoList;
+		private ITodoListContentView _view;  
 		private TabContentType _tabContentType;
 		private ICommand _navigateToDetailToDoItemCommand;
+		private ObservableCollection<TodoItem> _todoList;
 
 		public TodoListContentViewModel(TabContentType tabContentType)
 		{
@@ -48,22 +50,26 @@ namespace Todo.ViewModels.ContentViewModels
 		{
 			var allTodos = TodoRepository.Instance.GetAll();
 
-			var upcomingList = (from a in allTodos
+			var dueTodayList = (from a in allTodos
 								where a.Due == DateTime.Today && !a.Completed
 								select a).ToList();
 
-			TodoList = new ObservableCollection<TodoItem>(upcomingList);
+			TodoList = new ObservableCollection<TodoItem>(dueTodayList);
+
+			_view.ToggleContainerVisibility(dueTodayList.Count > 0);
 		}
 
 		private void ListCompletedItems()
 		{
 			var allTodos = TodoRepository.Instance.GetAll();
 
-			var todoList = (from a in allTodos
+			var completedList = (from a in allTodos
 							where a.Completed
 							select a).ToList();
 
-			TodoList = new ObservableCollection<TodoItem>(todoList);
+			TodoList = new ObservableCollection<TodoItem>(completedList);
+
+			_view.ToggleContainerVisibility(completedList.Count > 0);
 		}
 
 		private void ListUpComingItems()
@@ -75,6 +81,13 @@ namespace Todo.ViewModels.ContentViewModels
 								select a).ToList();
 
 			TodoList = new ObservableCollection<TodoItem>(upcomingList);
+
+			_view.ToggleContainerVisibility(upcomingList.Count > 0);
+		}
+
+		internal void SetView(TodoListContentView view)
+		{
+			_view = view;
 		}
 
 		#region Binding properties

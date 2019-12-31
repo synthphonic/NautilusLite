@@ -22,6 +22,7 @@ namespace Todo.ViewModels
 		private readonly INavigationService _navigator;		
 		private string _welcomeMessage;
 		private string _messageToAdd;
+		private TabContentType _currentTabContentType = TabContentType.DueToday;
 		private UserModel _user;
 		private ObservableCollection<TodoItem> _todoList;
 		private ObservableCollection<TodoItem> _favorites;
@@ -64,6 +65,8 @@ namespace Todo.ViewModels
 					 select a).ToList();
 
 			Upcoming = new ObservableCollection<TodoItem>(upcomingList);
+
+			_view.LoadTabContent(_currentTabContentType);
 		}
 
 		#region Binding properties		
@@ -206,7 +209,8 @@ namespace Todo.ViewModels
 
 		private void DoNavigateTabbar(TabContentType parameter)
 		{
-			_view.LoadTabContent(parameter);
+			_currentTabContentType = parameter;
+			_view.LoadTabContent(_currentTabContentType);
 		}
 		#endregion
 	}

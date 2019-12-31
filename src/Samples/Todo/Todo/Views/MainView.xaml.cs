@@ -152,7 +152,49 @@ namespace Todo.Views
 		{
 			TabContent.Content = null;
 
+			ChangeTabBarItemState(tabContentType);
+			Task.Delay(1);
+
 			TabContent.Content = new ContentViews.TodoListContentView(tabContentType);
+		}
+
+		private void ChangeTabBarItemState(TabContentType tabContentType)
+		{
+			switch (tabContentType)
+			{
+				case TabContentType.DueToday:
+					VisualStateManager.GoToState(DueTodayUnderlineTabbarItem, "Selected");
+					VisualStateManager.GoToState(DueTodayTabbarItemLabel, "Selected");
+
+					VisualStateManager.GoToState(UpComingUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(UpComingTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(CompletedTabbarItemLabel, "UnSelected");
+
+					break;
+				case TabContentType.UpComing:
+					VisualStateManager.GoToState(DueTodayUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(DueTodayTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(UpComingUnderlineTabbarItem, "Selected");
+					VisualStateManager.GoToState(UpComingTabbarItemLabel, "Selected");
+
+					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(CompletedTabbarItemLabel, "UnSelected");
+					break;
+
+				case TabContentType.Completed:
+					VisualStateManager.GoToState(DueTodayUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(DueTodayTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(UpComingUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(UpComingTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "Selected");
+					VisualStateManager.GoToState(CompletedTabbarItemLabel, "Selected");
+					break;
+			}
 		}
 		#endregion
 	}
