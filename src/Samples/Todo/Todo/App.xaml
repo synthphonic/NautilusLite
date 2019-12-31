@@ -44,23 +44,6 @@
             </Style>
 
             <!-- Base Styles -->
-            <!--
-                NOTE: Since in xamarin forms we already have
-                ios:Page.UseSafeArea="True"
-
-                we no longer need to supply the padding style for each page
-            -->
-            <!--<Style x:Key="ContentPagePlatformPadding" TargetType="ContentPage">                
-                <Setter Property="Padding">
-                    <Setter.Value>
-                        <OnPlatform x:TypeArguments="Thickness">
-                            <On Platform="iOS" Value="0,0,0,0"/>
-                            <On Platform="Android" Value="0,0,0,0"/>
-                        </OnPlatform>
-                    </Setter.Value>
-                </Setter>
-            </Style>-->
-
             <Style x:Key="SpanLinkLabelStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="{StaticResource OrangeColor}"/>
                 <Setter Property="TextDecorations" Value="Underline"/>
@@ -131,7 +114,71 @@
                 <Setter Property="TextColor" Value="Black"/>
             </Style>
 
+            <!--
+                NOTE: Since in xamarin forms we already have
+                ios:Page.UseSafeArea="True"
+
+                we no longer need to supply the padding style for each page
+            -->
+            <!--<Style x:Key="ContentPagePlatformPadding" TargetType="ContentPage">                
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0,0,0,0"/>
+                            <On Platform="Android" Value="0,0,0,0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>-->
+
             <!-- End of Base Styles -->
+
+            <!-- TabBarItem Styles with Visual States -->
+            <Style x:Key="TabbarItemFontStyle" TargetType="Label" BasedOn="{StaticResource Label18OrangeStyle}">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="UnSelected">
+                                <VisualState.Setters>
+                                    <Setter Property="FontAttributes" Value="None"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="FontAttributes" Value="Bold"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style x:Key="TabbarItemUnderlineStyle" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="2"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}"/>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="UnSelected">
+                                <VisualState.Setters>
+                                    <Setter Property="HeightRequest" Value="2"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="HeightRequest" Value="5"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <!-- END : TabBarItem Styles with Visual States -->
+
+            <Style x:Key="TabbarItemSelected" TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="1"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource OrangeColor}"/>
+            </Style>
 
             <!--<Frame CornerRadius="10" WidthRequest="100" HeightRequest="80" HasShadow="False" BackgroundColor="{StaticResource FrameStyle}"/>-->
             <Style x:Key="CardStyle" TargetType="Frame">
