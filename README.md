@@ -12,10 +12,12 @@ Todo sample App - Get the sample app code [here](https://github.com/synthphonic/
 
 ### Using the following technologies/code
 - NautilusLite
-- Attached Properties
-- Slide up and down animations
-- Visual State Manager
-- Xamarin.Forms.Visual.Material
+- [Attached Properties](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/attached-properties) 
+- [Xamarin Forms builtin animation API](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/animation/)
+- [Visual State Manager](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual-state-manager)  
+- [Xamarin.Forms.Visual.Material](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual/material-visual) and other links related to it
+	- [Demos here](https://docs.microsoft.com/en-us/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos/)
+	- [Blog post here](https://devblogs.microsoft.com/xamarin/beautiful-material-design-android-ios/)
 - My own simple TabBar in ContentPage implementation
 
 ### Third Party
