@@ -3,7 +3,7 @@
 A simple and strip down version of Nautilus Mobile SDK for Xamarin Forms.
 Samples here are written using whatever the Xamarin Forms world has. 
 
-# Todo Sample App
+## Todo Sample App
 Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobile/tree/master/src/Samples/Todo)
 
 
@@ -23,5 +23,5 @@ Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobi
 - [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)
 
 
-# Other Sample App
+## Other Sample App
 coming here... sooner or later :p
