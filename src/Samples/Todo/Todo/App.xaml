@@ -23,6 +23,12 @@
             
             <Color x:Key="UndefineColor">#E0E0E0</Color> <!-- not used -->
 
+            <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeBrandsRegularFontFamily">
+                <On Platform="Android" Value="Fonts/fa-brands-400.ttf#Font Awesome 5 Free"/>
+                <On Platform="iOS" Value="FontAwesome5Brands-Regular"/>
+                <On Platform="UWP" Value="/Assets/Fonts/fa-brands-400.ttf#Font Awesome 5 Free"/>
+            </OnPlatform>
+
             <OnPlatform x:TypeArguments="x:String" x:Key="FontAwesomeRegularFontFamily">
                 <On Platform="Android" Value="Fonts/fa-regular-400.ttf#Font Awesome 5 Free"/>
                 <On Platform="iOS" Value="FontAwesome5Free-Regular"/>
@@ -35,12 +41,22 @@
                 <On Platform="UWP" Value="/Assets/Fonts/fa-solid-900.ttf#Font Awesome 5 Free"/>
             </OnPlatform>
 
+            <Style x:Key="IconBrandStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource FontAwesomeBrandsRegularFontFamily}"/>
+            </Style>
+
             <Style x:Key="IconStyle" TargetType="Label">
                 <Setter Property="FontFamily" Value="{DynamicResource FontAwesomeRegularFontFamily}"/>
             </Style>
 
             <Style x:Key="IconStyleSolid" TargetType="Label">
                 <Setter Property="FontFamily" Value="{DynamicResource FontAwesomeSolidFontFamily}"/>
+            </Style>
+
+            <Style x:Key="IconBrandLightStyle" TargetType="Label" BasedOn="{StaticResource IconBrandStyle}">
+                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="LightGray"/>
             </Style>
 
             <!-- Base Styles -->

@@ -20,7 +20,7 @@ namespace Todo
 				.RegisterPages(AppStartup.RegisterPages)
 				.UseRootPage(typeof(LoginView))
 				.Initialize();
-
+			
 			TodoRepository.Instance.InitializeData(DesignDataset.CreateTodoItems().ToList());
 		}
 
