@@ -1,3 +1,4 @@
+
 # Nautilus Lite
 A simple and strip down version of Nautilus Mobile SDK for Xamarin Forms.
 Samples here are written using whatever the Xamarin Forms world has. 
@@ -12,6 +13,7 @@ Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobi
 - Slide up and down animations
 - Visual State Manager
 - Xamarin.Forms.Visual.Material
+- My own simple TabBar in ContentPage implementation
 
 ### Third Party controls
 - Acr.UserDialogs
