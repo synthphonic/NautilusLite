@@ -34,6 +34,7 @@
 	<array>
 		<string>/Fonts/fa-regular-400.ttf</string>
 		<string>/Fonts/fa-solid-900.ttf</string>
+		<string>/Fonts/fa-brands-400.ttf</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>Todo-NautilusLite</string>

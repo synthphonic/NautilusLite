@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using NautilusLite.iOS.Services;
 using UIKit;
 
 namespace Todo.iOS
@@ -38,7 +37,7 @@ namespace Todo.iOS
 			ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
 			Xamarin.Forms.PancakeView.iOS.PancakeViewRenderer.Init();
 
-			//FontInfoHelper.OutputInstalledFonts();
+			//NautilusLite.iOS.Services.FontInfoHelper.OutputInstalledFonts();
 		}
 	}
 }

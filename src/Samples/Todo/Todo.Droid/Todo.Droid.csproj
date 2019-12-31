@@ -156,6 +156,7 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Fonts\fa-regular-400.ttf" />
     <AndroidAsset Include="Assets\Fonts\fa-solid-900.ttf" />
+    <AndroidAsset Include="Assets\Fonts\fa-brands-400.ttf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
