@@ -13,14 +13,14 @@ namespace Todo.Views.ContentViews
 			BindingContext = _vm = new ProfileViewModel();
 		}
 
-		public void LoadData()
+		internal void LoadData()
 		{
-			_vm.LoadData(null);
+
 		}
 
 		internal void UnLoadData()
 		{
-			_vm.UnLoadData();
+
 		}
 	}
 }
