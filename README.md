@@ -15,7 +15,7 @@ Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobi
 - Xamarin.Forms.Visual.Material
 - My own simple TabBar in ContentPage implementation
 
-### Third Party controls
+### Third Party
 - [ACR User Dialogs](https://github.com/aritchie/userdialogs)
 - [MvvmLightLibsStd10](https://github.com/lbugnion/mvvmlight)
 - [Xamarin Essentials](https://github.com/xamarin/Essentials) (comes with Xamarin Forms project template)
