@@ -40,5 +40,9 @@
 	<string>Todo-NautilusLite</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0.0</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>
