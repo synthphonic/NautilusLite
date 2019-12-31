@@ -16,11 +16,11 @@ Get the sample app code [here](https://github.com/synthphonic/nautilus-lite-mobi
 - My own simple TabBar in ContentPage implementation
 
 ### Third Party controls
-- Acr.UserDialogs
-- MvvmLightLibsStd10
-- Xamarin.Essentials (comes with Xamarin Forms project template)
-- ImageCircle
-- PancakeView
+- [ACR User Dialogs](https://github.com/aritchie/userdialogs)
+- [MvvmLightLibsStd10](https://github.com/lbugnion/mvvmlight)
+- [Xamarin Essentials](https://github.com/xamarin/Essentials) (comes with Xamarin Forms project template)
+- [ImageCircle](https://github.com/jamesmontemagno/ImageCirclePlugin)
+- [PancakeView](https://github.com/sthewissen/Xamarin.Forms.PancakeView)
 
 
 # Other Sample App
