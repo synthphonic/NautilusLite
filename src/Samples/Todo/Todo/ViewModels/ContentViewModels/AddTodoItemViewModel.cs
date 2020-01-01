@@ -111,7 +111,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 			try
 			{
-				TodoRepository.Instance.Save(newTodoItem);
+				TodoRepositoryContext<TodoItem>.Instance.Save(newTodoItem);
 			}
 			catch (Exception ex)
 			{

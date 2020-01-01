@@ -27,6 +27,7 @@
     <Folder Include="Xaml\AttachedProperties\" />
     <Folder Include="Views\Enums\" />
     <Folder Include="ViewModels\ContentViewModels\" />
+    <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\NautilusLite\NautilusLite.csproj" />

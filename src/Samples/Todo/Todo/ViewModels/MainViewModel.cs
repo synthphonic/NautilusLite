@@ -57,7 +57,7 @@ namespace Todo.ViewModels
 
 			User = user;
 
-			TodoList = new ObservableCollection<TodoItem>(TodoRepository.Instance.GetAll());
+			TodoList = new ObservableCollection<TodoItem>(TodoRepositoryContext<TodoItem>.Instance.GetAll());
 			Favorites = new ObservableCollection<TodoItem>(TodoList.Where(x => x.IsFavorite).ToList());
 
 			var upcomingList = (from a in TodoList

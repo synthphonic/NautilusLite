@@ -42,7 +42,7 @@ namespace Todo.ViewModels
 
 		internal void Load()
 		{
-			var found = TodoRepository.Instance.Get(_parameter.Id);
+			var found = TodoRepositoryContext<TodoItem>.Instance.Get(_parameter.Id);
 			if (found == null)
 			{
 				PopupDialog.ShowAlert("Todo Item Not Found", "Opss sorry item not found");
@@ -81,7 +81,7 @@ namespace Todo.ViewModels
 
 		private async Task DoSaveAsync()
 		{
-			var foundTodo = TodoRepository.Instance.Get(Item.Id);
+			var foundTodo = TodoRepositoryContext<TodoItem>.Instance.Get(_parameter.Id);
 			foundTodo.Completed = Item.Completed;
 			foundTodo.Description = Item.Description;
 			foundTodo.Due = Item.Due;

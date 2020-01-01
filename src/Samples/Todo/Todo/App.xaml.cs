@@ -2,8 +2,7 @@
 using Xamarin.Forms;
 using Todo.Views;
 using Todo.Database;
-using Todo.DesignData;
-using System.Linq;
+using Todo.Models;
 
 namespace Todo
 {
@@ -21,7 +20,7 @@ namespace Todo
 				.UseRootPage(typeof(LoginView))
 				.Initialize();
 			
-			TodoRepository.Instance.InitializeData(DesignDataset.CreateTodoItems().ToList());
+			TodoRepositoryContext<TodoItem>.Instance.RegisterRepository(new InMemoryRepository());
 		}
 
 		protected override void OnStart()

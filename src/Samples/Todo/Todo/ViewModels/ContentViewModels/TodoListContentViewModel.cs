@@ -48,8 +48,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 		private void ListDueTodayItems()
 		{
-			var allTodos = TodoRepository.Instance.GetAll();
-
+			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
 			var dueTodayList = (from a in allTodos
 								where a.Due == DateTime.Today && !a.Completed
 								select a).ToList();
@@ -61,7 +60,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 		private void ListCompletedItems()
 		{
-			var allTodos = TodoRepository.Instance.GetAll();
+			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
 
 			var completedList = (from a in allTodos
 							where a.Completed
@@ -74,7 +73,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 		private void ListUpComingItems()
 		{
-			var allTodos = TodoRepository.Instance.GetAll();
+			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
 
 			var upcomingList = (from a in allTodos
 								where a.Due >= DateTime.Now && !a.Completed
