@@ -16,21 +16,16 @@ namespace Todo.ViewModels.ContentViewModels
 {
 	public class AddTodoItemViewModel : ViewModelBase
 	{
-		private readonly INavigationService _navigator;
 		private ICommand _saveNewTodoItemCommand;
 		private ICommand _setFavoriteCommand;
 		private AddTodoItemCV _view;
+		private DateTime _due;
 		private string _message;
 		private string _description;
 		private string _shortDescription;
 		private string _title;
 		private string _name;
-		private bool _isFavorite;
-
-		public AddTodoItemViewModel()
-		{
-			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
-		}
+		private bool _isFavorite;		
 
 		internal void SetView(AddTodoItemCV view)
 		{
@@ -40,6 +35,7 @@ namespace Todo.ViewModels.ContentViewModels
 		internal void SetNewData()
 		{
 			IsFavorite = false;
+			Due = DateTime.Today;
 			ToggleFavorite(IsFavorite);
 		}
 
@@ -54,6 +50,12 @@ namespace Todo.ViewModels.ContentViewModels
 		}
 
 		#region Binding properties
+		public DateTime Due
+		{
+			get { return _due; }
+			set { Set(ref _due, value); }
+		}
+
 		public string Message
 		{
 			get { return _message; }
@@ -106,7 +108,7 @@ namespace Todo.ViewModels.ContentViewModels
 				Description = Description,
 				ShortDescription = ShortDescription,
 				Name = Name,
-				Due = DateTime.Today,
+				Due =  Due
 			};
 
 			try
