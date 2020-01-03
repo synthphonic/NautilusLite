@@ -103,6 +103,19 @@ namespace NautilusLite.Infrastructure.IO
 			}
 		}
 
+		public void SaveFile(string fileName, string content)
+		{
+			try
+			{
+				var fullFilePath = Path.Combine(RootPath, fileName);
+				File.WriteAllText(fullFilePath, content);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+		}
+
 		public void SaveFile(string fileName, byte[] bytes)
 		{
 			try
