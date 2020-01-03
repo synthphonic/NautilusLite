@@ -19,7 +19,8 @@ Todo sample App - Get the sample app code [here](https://github.com/synthphonic/
 - [Xamarin.Forms.Visual.Material](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual/material-visual) and other links related to it
 	- [Demos here](https://docs.microsoft.com/en-us/samples/xamarin/xamarin-forms-samples/userinterface-visualdemos/)
 	- [Blog post here](https://devblogs.microsoft.com/xamarin/beautiful-material-design-android-ios/)
-- My own simple TabBar in ContentPage implementation
+- [ContentPage ToolbarItem](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/toolbaritem)
+- My own simple TabBar in ContentPage implementation (needs refactoring in the future)
 
 ### Third Party
 - [ACR User Dialogs](https://github.com/aritchie/userdialogs)
