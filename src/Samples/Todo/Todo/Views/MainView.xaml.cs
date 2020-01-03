@@ -172,7 +172,10 @@ namespace Todo.Views
 					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "UnSelected");
 					VisualStateManager.GoToState(CompletedTabbarItemLabel, "UnSelected");
 
+					VisualStateManager.GoToState(PastUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(PastTabbarItemLabel, "UnSelected");
 					break;
+
 				case TabContentType.UpComing:
 					VisualStateManager.GoToState(DueTodayUnderlineTabbarItem, "UnSelected");
 					VisualStateManager.GoToState(DueTodayTabbarItemLabel, "UnSelected");
@@ -182,6 +185,9 @@ namespace Todo.Views
 
 					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "UnSelected");
 					VisualStateManager.GoToState(CompletedTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(PastUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(PastTabbarItemLabel, "UnSelected");
 					break;
 
 				case TabContentType.Completed:
@@ -193,6 +199,23 @@ namespace Todo.Views
 
 					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "Selected");
 					VisualStateManager.GoToState(CompletedTabbarItemLabel, "Selected");
+
+					VisualStateManager.GoToState(PastUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(PastTabbarItemLabel, "UnSelected");
+					break;
+
+				case TabContentType.Past:
+					VisualStateManager.GoToState(DueTodayUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(DueTodayTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(UpComingUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(UpComingTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(CompletedUnderlineTabbarItem, "UnSelected");
+					VisualStateManager.GoToState(CompletedTabbarItemLabel, "UnSelected");
+
+					VisualStateManager.GoToState(PastUnderlineTabbarItem, "Selected");
+					VisualStateManager.GoToState(PastTabbarItemLabel, "Selected");
 					break;
 			}
 		}
