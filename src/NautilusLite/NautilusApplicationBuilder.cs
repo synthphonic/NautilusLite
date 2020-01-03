@@ -4,6 +4,8 @@ using GalaSoft.MvvmLight.Ioc;
 using NautilusLite.Core;
 using NautilusLite.Forms.Mvvm.Navigation;
 using NautilusLite.Forms.Mvvm.Navigation.Core;
+using NautilusLite.Infrastructure;
+using NautilusLite.Infrastructure.IO;
 using Xamarin.Forms;
 
 namespace NautilusLite
@@ -88,6 +90,8 @@ namespace NautilusLite
 			((NavigationService)navigator).SetNavigtionPage(navigationPage);
 
 			Application.Current.MainPage = navigationPage;
+
+			DebugOutput.Write(GetType(), $"Local Storage Root Path: {LocalStorage.Instance.RootPath}");
 		}
 		#endregion
 	}
