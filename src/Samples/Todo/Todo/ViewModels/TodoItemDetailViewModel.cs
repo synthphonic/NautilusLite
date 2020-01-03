@@ -20,6 +20,7 @@ namespace Todo.ViewModels
 		private readonly TodoRepositoryContext<TodoItem> _repo;
 		private ICommand _saveItemCommand;
 		private ICommand _favoriteCommand;
+		private ICommand _deleteTodoItemCommand;
 		private ITodoItemDetailView _view;
 		private TodoItemParameter _parameter;
 		private TodoItem _todoItem;
@@ -110,6 +111,37 @@ namespace Todo.ViewModels
 		{
 			Item.IsFavorite = !Item.IsFavorite;
 			_view.SetFavorite(Item.IsFavorite);
+		}
+		#endregion
+
+		#region DeleteTodoItemCommand
+		public ICommand DeleteTodoItemCommand
+		{
+			get { return _deleteTodoItemCommand ?? (_deleteTodoItemCommand = new Command(DeleteTodoItem)); }
+		}
+
+		private void DeleteTodoItem()
+		{
+			var deleted = false;
+
+			Xamarin.Essentials.MainThread.BeginInvokeOnMainThread(() =>
+			{
+				if (_todoItem != null)
+				{
+					PopupDialog.ShowConfirm("Delete Todo Item?", "Delete this item?", "Yes", "No", async (yesDelete) =>
+						{
+							if (yesDelete)
+							{
+								deleted = _repo.Delete(_todoItem);
+
+								if (deleted)
+								{
+									await _navigator.GoBackAsync(true);
+								}
+							}
+						});
+				}
+			});
 		}
 		#endregion
 	}

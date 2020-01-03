@@ -9,7 +9,14 @@
              xmlns:attachprop="clr-namespace:Todo.Xaml.AttachedProperties"
              x:DataType="vm:TodoItemDetailViewModel"
              BackgroundColor="{StaticResource AlmostBlack}"
+             x:Name="TodoItemDetailViewPage"
              x:Class="Todo.Views.TodoItemDetailView">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete"
+                     Command="{Binding DeleteTodoItemCommand}"
+                     CommandParameter="{Binding .}"/>
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <converters:EntryNameConverter x:Key="entryNameConverter" />
