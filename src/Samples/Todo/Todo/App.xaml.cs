@@ -19,8 +19,12 @@ namespace Todo
 				.RegisterPages(AppStartup.RegisterPages)
 				.UseRootPage(typeof(LoginView))
 				.Initialize();
-			
-			TodoRepositoryContext<TodoItem>.Instance.RegisterRepository(new InMemoryRepository());
+
+			//
+			// Change to your prefered data store
+			//
+			//TodoRepositoryContext<TodoItem>.Instance.RegisterRepository(new InMemoryRepository());
+			TodoRepositoryContext<TodoItem>.Instance.RegisterRepository(new JsonRepository());
 		}
 
 		protected override void OnStart()
