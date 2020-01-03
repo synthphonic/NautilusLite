@@ -19,7 +19,8 @@ namespace Todo.ViewModels
 {
 	public class MainViewModel : ViewModelBase
 	{
-		private readonly INavigationService _navigator;		
+		private readonly INavigationService _navigator;
+		private readonly TodoRepositoryContext<TodoItem> _todoRepo;
 		private string _welcomeMessage;
 		private string _messageToAdd;
 		private TabContentType _currentTabContentType = TabContentType.DueToday;
@@ -38,6 +39,7 @@ namespace Todo.ViewModels
 		public MainViewModel()
 		{
 			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
+			_todoRepo = TodoRepositoryContext<TodoItem>.Instance;
 		}
 
 		internal void SetView(IMainView mainView)
@@ -57,7 +59,7 @@ namespace Todo.ViewModels
 
 			User = user;
 
-			TodoList = new ObservableCollection<TodoItem>(TodoRepositoryContext<TodoItem>.Instance.GetAll());
+			TodoList = new ObservableCollection<TodoItem>(_todoRepo.GetAll());
 			Favorites = new ObservableCollection<TodoItem>(TodoList.Where(x => x.IsFavorite).ToList());
 
 			var upcomingList = (from a in TodoList

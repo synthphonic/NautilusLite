@@ -5,5 +5,6 @@
 		DueToday = 0,
 		UpComing,
 		Completed,
+		Past
 	}
 }

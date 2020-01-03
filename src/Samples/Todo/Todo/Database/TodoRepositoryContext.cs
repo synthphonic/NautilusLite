@@ -37,9 +37,9 @@ namespace Todo.Database
 			return _repository.GetAll();
 		}
 
-		public void Save(TModel newItem)
+		public void Save(TModel model)
 		{
-			_repository.Save(newItem);
+			_repository.Save(model);
 		}
 	}
 }

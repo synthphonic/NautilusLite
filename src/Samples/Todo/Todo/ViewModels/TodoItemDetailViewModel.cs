@@ -17,6 +17,7 @@ namespace Todo.ViewModels
 	public class TodoItemDetailViewModel : ViewModelBase
 	{
 		private readonly INavigationService _navigator;
+		private readonly TodoRepositoryContext<TodoItem> _repo;
 		private ICommand _saveItemCommand;
 		private ICommand _favoriteCommand;
 		private ITodoItemDetailView _view;
@@ -27,6 +28,7 @@ namespace Todo.ViewModels
 		public TodoItemDetailViewModel()
 		{
 			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
+			_repo = TodoRepositoryContext<TodoItem>.Instance;
 		}
 
 		internal void SetView(ITodoItemDetailView view)
@@ -88,6 +90,8 @@ namespace Todo.ViewModels
 			foundTodo.IsFavorite = Item.IsFavorite;
 			foundTodo.Name = Item.Name;
 			foundTodo.ShortDescription = Item.ShortDescription;
+
+			_repo.Save(foundTodo);
 
 			var orangeColor = (Color)Application.Current.Resources["OrangeColor"];
 			PopupDialog.ShowToast("You todo item updated", Color.Blue, orangeColor, TimeSpan.FromSeconds(3));

@@ -18,6 +18,7 @@ namespace Todo.ViewModels.ContentViewModels
 	public class TodoListContentViewModel : ViewModelBase
 	{
 		private readonly INavigationService _navigator;
+		private readonly TodoRepositoryContext<TodoItem> _todoRepo;
 		private ITodoListContentView _view;  
 		private TabContentType _tabContentType;
 		private ICommand _navigateToDetailToDoItemCommand;
@@ -26,6 +27,7 @@ namespace Todo.ViewModels.ContentViewModels
 		public TodoListContentViewModel(TabContentType tabContentType)
 		{
 			_navigator = SimpleIoc.Default.GetInstance<INavigationService>();
+			_todoRepo = TodoRepositoryContext<TodoItem>.Instance;
 
 			_tabContentType = tabContentType;
 		}
@@ -43,12 +45,28 @@ namespace Todo.ViewModels.ContentViewModels
 				case TabContentType.Completed:
 					ListCompletedItems();
 					break;
+				case TabContentType.Past:
+					ListPastItems();
+					break;
 			}
+		}
+
+		private void ListPastItems()
+		{
+			var allTodos = _todoRepo.GetAll();
+			var dueTodayList = (from a in allTodos
+								where a.Due <= DateTime.Today
+								select a).ToList();
+
+			TodoList = new ObservableCollection<TodoItem>(dueTodayList);
+
+			_view.ToggleContainerVisibility(dueTodayList.Count > 0);
+
 		}
 
 		private void ListDueTodayItems()
 		{
-			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
+			var allTodos = _todoRepo.GetAll();
 			var dueTodayList = (from a in allTodos
 								where a.Due == DateTime.Today && !a.Completed
 								select a).ToList();
@@ -60,7 +78,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 		private void ListCompletedItems()
 		{
-			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
+			var allTodos = _todoRepo.GetAll();
 
 			var completedList = (from a in allTodos
 							where a.Completed
@@ -73,7 +91,7 @@ namespace Todo.ViewModels.ContentViewModels
 
 		private void ListUpComingItems()
 		{
-			var allTodos = TodoRepositoryContext<TodoItem>.Instance.GetAll();
+			var allTodos = _todoRepo.GetAll();
 
 			var upcomingList = (from a in allTodos
 								where a.Due >= DateTime.Now && !a.Completed
