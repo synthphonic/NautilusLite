@@ -180,16 +180,18 @@ namespace Todo.ViewModels
 		{
 			switch(parameter)
 			{
-				case Views.Enums.MainViewButtonOperation.Profile:
+				case MainViewButtonOperation.Profile:
 					await _view.SlideUpProfileAsync();
 					break;
-				case Views.Enums.MainViewButtonOperation.AddTodoItem:
+
+				case MainViewButtonOperation.AddTodoItem:
 					await _view.SlideUpAddTodoItemAsync();
 					break;
+
 				//case "Bid":
 				//	await _view.SlideUpAsync();	 
 				//	break;
-				case Views.Enums.MainViewButtonOperation.Logout:
+				case MainViewButtonOperation.Logout:
 					PopupDialog.ShowConfirm("Logout", "Confirm logout?", "Yes", "No", async (confirm) =>
 						   {
 							   if (confirm)
