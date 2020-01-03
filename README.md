@@ -12,7 +12,8 @@ Todo sample App - Get the sample app code [here](https://github.com/synthphonic/
 
 ### Using the following technologies/code
 - NautilusLite
-- [Attached Properties](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/attached-properties) 
+- [Attached Properties](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/attached-properties)
+- [Bindable Properties](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/xaml/bindable-properties#advanced-scenarios) 
 - [Xamarin Forms builtin animation API](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/animation/)
 - [Visual State Manager](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual-state-manager)  
 - [Xamarin.Forms.Visual.Material](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/visual/material-visual) and other links related to it
