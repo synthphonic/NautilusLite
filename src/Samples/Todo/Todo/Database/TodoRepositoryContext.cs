@@ -41,5 +41,10 @@ namespace Todo.Database
 		{
 			_repository.Save(model);
 		}
+
+		public bool Delete(TModel model)
+		{
+			return _repository.Delete(model);
+		}
 	}
 }

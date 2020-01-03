@@ -7,6 +7,7 @@ namespace Todo.Core
 	{
 		TModel Get(Guid id);
 		IEnumerable<TModel> GetAll();
-		void Save(TModel todoItem);
+		void Save(TModel model);
+		bool Delete(TModel model);
 	}
 }

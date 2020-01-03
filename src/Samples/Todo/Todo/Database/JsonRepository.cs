@@ -56,7 +56,22 @@ namespace Todo.Database
 				items.Add(todoItem);
 			}
 
-			SaveToDataFile(items);
+			SerializeToDataFile(items);
+		}
+
+		public bool Delete(TodoItem todoItem)
+		{
+			var list = DeserializeDataFile();
+			var found = list.FirstOrDefault(x => x.Id.Equals(todoItem.Id));
+			if (found != null)
+			{
+				list.Remove(found);
+				SerializeToDataFile(list);
+
+				return true;
+			}
+
+			return false;
 		}
 
 		private void InitializeDataFile()
@@ -70,7 +85,7 @@ namespace Todo.Database
 			}
 		}
 
-		private void SaveToDataFile(IList<TodoItem> data)
+		private void SerializeToDataFile(IList<TodoItem> data)
 		{
 			var content = JsonConvert.SerializeObject(data);
 			_localStorage.SaveFile(_dataFilePath, content);

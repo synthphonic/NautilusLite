@@ -31,5 +31,17 @@ namespace Todo.Database
 		{
 			_list.Add(newTodoItem);
 		}
+
+		public bool Delete(TodoItem todoItem)
+		{
+			var found = _list.FirstOrDefault(x => x.Id.Equals(todoItem.Id));
+			if (found != null)
+			{
+				_list.Remove(todoItem);
+				return true;
+			}
+
+			return false;
+		}
 	}
 }
